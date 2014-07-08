@@ -1,0 +1,852 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[data_top]]></name>
+      <tpl_default><![CDATA[    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt">{$=inavigation("module", 0)}{$=nav_forum}</td>
+      </tr>
+      <tr>
+        <td height="35">{$=user_login('module.login')}</td>
+      </tr>
+    </table>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[data_foot]]></name>
+      <tpl_default><![CDATA[    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt">{$=itake('module.img', 'lng')}</td>
+      </tr>
+      <tr>
+        <td height="50" align="center"><img src="{$images}state/forum.gif" border="0" class="absmiddle" />&nbsp;{$=itake('module.forum', 'lng')}&nbsp;<img src="{$images}state/forum_new.gif" border="0" class="absmiddle" />&nbsp;{$=itake('module.forum_new', 'lng')}&nbsp;<img src="{$images}state/forum_lock.gif" border="0" class="absmiddle" />&nbsp;{$=itake('module.forum_lock', 'lng')}</td>
+      </tr>
+    </table>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[data_manage_menu]]></name>
+      <tpl_default><![CDATA[    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt">{$=itake('config.manage', 'lng')}</td>
+      </tr>
+      <tr>
+        <td><img src="{$images}icon/icon2.gif" border="0" class="absmiddle" />&nbsp;<a href="?type=manage&mtype=topic&sid={$sid}">{$=itake('config.manage_topic', 'lng')}</a>&nbsp;<img src="{$images}icon/icon2.gif" border="0" class="absmiddle" />&nbsp;<a href="./?type=manage&mtype=blacklist&sid={$sid}">{$=itake('config.manage_blacklist', 'lng')}</a></td>
+      </tr>
+    </table>
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[forum]]></name>
+      <tpl_default><![CDATA[{$recurrence_ida}
+            <table cellpadding="0" cellspacing="0" width="100%">
+              <tr>
+                <td height="25" colspan="3"><img src="{$images}icon/topic.gif" border="0" /> <a href="./?type=detail&sid={$sid}&tid={$tid}">{$topic}</a></td>
+              </tr>
+              <tr>
+                <td height="25" colspan="3"><img src="{$images}icon/time.gif" border="0" /> {$time}</td>
+              </tr>
+              <tr>
+                <td width="33%" height="25"><img src="{$images}icon/num_new.gif" border="0" /> {$num_new}</td>
+                <td width="33%"><img src="{$images}icon/num_topic.gif" border="0" /> {$num_topic}</td>
+                <td width="33%"><img src="{$images}icon/num_note.gif" border="0" /> {$num_note}</td>
+              </tr>
+            </table>{$$}
+            <table cellpadding="0" cellspacing="0" width="100%">
+              <tr>
+                <td align="center" class="ash">{$=itake('module.popedom', 'lng')}</td>
+              </tr>
+            </table>{$recurrence_ida}
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[login]]></name>
+      <tpl_default><![CDATA[{$recurrence_ida}
+      <form action="{$=get_actual_route(userfolder)}/index.asp?action=login&backurl={$=urlencode(nurl)}" method="post">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="25">{$=itake('global.lng_config.username','lng')} <input type="text" name="username" size="15" class="text" />&nbsp;{$=itake('global.lng_config.password','lng')} <input type="password" name="password" size="15" class="text" />{$recurrence_valcode} {$=itake('global.lng_config.valcode', 'lng')} <input type="text" name="valcode" size="4" class="text" /> {$=valcode}{$recurrence_valcode}&nbsp;<input type="submit" value="{$=itake('global.' & userfolder & ':api.login','lng')}" class="button"> <img src="{$global.images}public/small/sico.gif" border="0" /> <a href="{$=get_actual_route(userfolder)}">{$=itake('global.' & userfolder & ':api.register_newuser','lng')}</a> <img src="{$global.images}public/small/sico.gif" border="0" /> <a href="{$=get_actual_route(userfolder)}/?type=lostpassword">{$=itake('global.' & userfolder & ':api.lost_password", "lng")}</a></td>
+        </tr>
+      </table>
+      </form>{$$}
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td height="25">{$=nusername}, <a href="{$=get_actual_route(userfolder)}/message/?type=list" target="_self">{$message}</a>, <a href="{$=get_actual_route(userfolder)}/?type=manage">{$=itake('global.' & userfolder & ':api.membercenter','lng')}</a>, <a href="{$=get_actual_route(userfolder)}/?action=logout&backurl={$=urlencode(nurl)}" onclick="return click_return('{$=itake('global.' & userfolder & ':api.logoutstr', 'lng')}')">{$=itake('global.' & userfolder & ':api.logout','lng')}</a></td>
+        </tr>
+      </table>{$recurrence_ida}]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[index]]></name>
+      <tpl_default><![CDATA[{$=web_head(nhead)}
+<div id="middle">
+  <div id="middleContent2">{$=module_data_top()}{$recurrence_forum}
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td colspan="3" class="tbt">{$sort}</td>
+      </tr>{$recurrence_ida}
+      <tr>
+        <td width="60" align="center"><img src="{$images}state/{$pic}.gif" border="0" /></td>
+        <td>
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td height="20"><a href="./?type=list&sid={$id}" target="_self"><b>{$sort}</b></a></td>
+              <td rowspan="3" align="right">{$forum_images}</td>
+            </tr>
+            <tr>
+              <td>{$explain}</td>
+            </tr>
+            <tr>
+              <td height="20">{$=itake('config.admin', 'lng')}: {$admin}</td>
+            </tr>
+          </table>
+        </td>
+        <td width="250">{$forum_info}</td>
+      </tr>{$recurrence_ida}
+    </table>{$recurrence_forum}{$=module_data_foot()}
+  </div>
+</div>
+{$=web_foot(nfoot)}
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[topic_list]]></name>
+      <tpl_default><![CDATA[{$=web_head(nhead)}
+<script type="text/javascript">
+var mystrsid, mystrtid, mystrarea;
+
+function loadreply(strsid, strtid, strarea)
+{
+  mystrsid = strsid;
+  mystrtid = strtid;
+  mystrarea = strarea;
+  switch_display("tr_" + strarea);
+  if (!(get_id("tr_" + strarea).style.display == "none"))
+  {igets("interface.asp?type=reply&sid=" + mystrsid + "&tid=" + mystrtid, nloadreply);};
+};
+
+function nloadreply(strers)
+{
+  var tobj, tstr;
+  tstr = strers;
+  tobj = get_id("td_" + mystrarea);
+  if (!(tstr == "$error$"))
+  {tobj.innerHTML = tstr;};
+};
+</script>
+<div id="middle">
+  <div id="middleContent2">{$=module_data_top()}
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt">{$=itake('module.rule', 'lng')}</td>
+      </tr>
+      <tr>
+        <td>{$rule}</td>
+      </tr>
+    </table>{$child_forum}
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td colspan="3" class="tbt">{$sort}</td>
+      </tr>{$recurrence_ida}
+      <tr>
+        <td width="60" align="center"><img src="{$images}state/{$pic}.gif" border="0" /></td>
+        <td>
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td height="20"><a href="./?type=list&sid={$id}" target="_self"><b>{$sort}</b></a></td>
+              <td rowspan="3" align="right">{$forum_images}</td>
+            </tr>
+            <tr>
+              <td>{$explain}</td>
+            </tr>
+            <tr>
+              <td height="20">{$=itake('config.admin', 'lng')}: {$admin}</td>
+            </tr>
+          </table>
+        </td>
+        <td width="250">{$forum_info}</td>
+      </tr>{$recurrence_ida}
+    </table>{$child_forum}
+    <table cellpadding="0" cellspacing="0" class="tables">
+      <tr>
+        <td class="tbn" height="30"><a href="./?type=release&sid={$sid}"><img src="{$images}post/topic_{$=nlng}.gif" alt="{$=itake('module.newtopic', 'lng')}" border="0" class="absmiddle" /></a>&nbsp;&nbsp;&nbsp;<a href="?type=release&sid={$sid}&vote=1"><img src="{$images}post/vote_{$=nlng}.gif" alt="{$=itake('module.newvote', 'lng')}" border="0" class="absmiddle" /></a></td>
+        <td class="tbn" align="right"><a href="./?type=manage&sid={$sid}"><img src="{$images}icon/admin.gif" border="0" class="absmiddle" /></a> {$forum_admin}</td>
+      </tr>
+    </table>
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt" colspan="7">{$=itake('module.topiclist', 'lng')}</td>
+      </tr>
+      <tr>
+        <td width="22" align="center"><img src="{$images}topic/ico.gif" border="0" /></td>
+        <td width="22" align="center"><img src="{$images}topic/ico.gif" border="0" /></td>
+        <td>{$=itake('config.topic', 'lng')}</td>
+        <td width="100">{$=itake('config.author', 'lng')}</td>
+        <td width="50" align="center">{$=itake('config.reply', 'lng')}</td>
+        <td width="50" align="center">{$=itake('config.count', 'lng')}</td>
+        <td width="150">{$=itake('config.lastreply', 'lng')}</td>
+      </tr>{$recurrence_idb}
+      <tr>
+        <td align="center"><img src="{$images}topic/{$ico}.gif" border="0" /></td>
+        <td align="center"><a href="javascript:loadreply('{$sid}','{$tid}','{$tid}');"><img src="{$images}tp/{$icon}.gif" border="0" /></a></td>
+        <td><a href="?type=detail&sid={$sid}&tid={$tid}">{$topic}</a> {$topicpic}</td>
+        <td><a href="{$userfolder}/?type=user_detail&username={$=urlencode('{$author}')}">{$author}</a></td>
+        <td align="center">{$reply}</td>
+        <td align="center">{$count}</td>
+        <td>{$lasttime} <a href="{$userfolder}/?type=user_detail&username={$=urlencode('{$lastuser}')}">{$lastuser}</a></td>
+      </tr>
+      <tr id="tr_{$tid}" style="display:none;">
+        <td align="center" colspan="2">&nbsp;</td>
+        <td colspan="5" id="td_{$tid}"><img src="{$images}loading.gif" border="0" alt="Loading" class="absmiddle" />{$loadreply}</td>
+      </tr>{$recurrence_idb}
+      <tr>
+        <td colspan="7"><div id="cutepage" class="cutepage">{$cpagestr}</div></td>
+      </tr>
+    </table>
+    <table cellpadding="0" cellspacing="0" class="tables">
+      <tr>
+        <td width="25" height="35"><img src="{$images}topic/normal.gif" border="0" /></td>
+        <td width="70">{$=itake("topic.normal", "lng")}</td>
+        <td width="27"><img src="{$images}topic/hot.gif" border="0" /></td>
+        <td width="70">{$=itake("topic.hot", "lng")}</td>
+        <td width="25"><img src="{$images}topic/elite.gif" border="0" /></td>
+        <td width="70">{$=itake("topic.elite", "lng")}</td>
+        <td width="25"><img src="{$images}topic/lock.gif" border="0" /></td>
+        <td width="70">{$=itake("topic.lock", "lng")}</td>
+        <td width="25"><img src="{$images}topic/top.gif" border="0" /></td>
+        <td width="70">{$=itake("topic.top", "lng")}</td>
+        <td width="25"><img src="{$images}topic/htop.gif" border="0" /></td>
+        <td width="70">{$=itake("topic.htop", "lng")}</td>
+        <td align="right">
+          <form method="get">
+          <input type="hidden" name="type" value="search" />
+          <input type="hidden" name="sid" value="{$sid}" />
+          <input type="text" name="keyword" style="WIDTH: 120px" class="text" /> <input type="submit" value="{$=itake('global.lng_config.search','lng')}" class="button" />
+          </form>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+{$=web_foot(nfoot)}
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[topic_detail]]></name>
+      <tpl_default><![CDATA[{$=web_head(nhead)}
+<script type="text/javascript">
+var mystrarea;
+
+function forum_quote(strsid, strtid, strarea)
+{
+  mystrarea = strarea;
+  igets("interface.asp?type=quote&sid=" + strsid + "&tid=" + strtid, forum_quotes);
+};
+
+function forum_quotes(strers)
+{
+  var tstr = strers;
+  if (!(tstr == "$error$"))
+  {itextner(mystrarea, tstr);};
+};
+</script>
+<div id="middle">
+  <div id="middleContent2">{$=module_data_top()}{$recurrence_vote}
+    <form action="{$=nuri}?action=vote&id={$id}&backurl={$=urlencode(nurl)}" method="post">
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt">{$=itake('module.votedetail', 'lng')}</td>
+      </tr>
+      <tr>
+        <td><strong>{$topic}</strong></td>
+      </tr>
+      <tr>
+        <td>
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">{$recurrence_voa}
+             <tr>
+               <td width="30" height="20" align="center"><input type="{$=change_forum_vote_type({$type})}" name="votes" value="{$id}" class="radio" /></td>
+               <td>{$topic}</td>
+               <td width="450">
+                 <table width="{$per}%" cellpadding="0" cellspacing="0" border="0" style="margin-left:0px;">
+                   <tr>
+                     <td width="{$per}%" height="10" style="background: url({$images}/bar.gif);"></td>
+                   </tr>
+                </table>
+              </td>
+              <td width="40" align="center">{$per}%</td>
+            </tr>{$recurrence_voa}
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td height="35" align="left">{$=itake("vote.all_1", "lng")}<b>{$count}</b>{$=itake("vote.all_2", "lng")}{$endtime}</td>
+              <td align="right"><input type="submit" value="{$=itake("vote.submit", "lng")}" class="button" /></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    </form>{$recurrence_vote}
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td colspan="2" class="tbt">{$=itake('module.topicdetail', 'lng')}</td>
+      </tr>{$recurrence_ida}
+      <tr>
+        <td width="140" valign="top">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td height="20" class="ash">{$floor} {$str_floor}</td>
+            </tr>
+            <tr>
+              <td height="20"><img src="{$=get_actual_route(userfolder)}/{$images}group/{$utype}.gif" border="0" align="absmiddle" /> <a href="{$=get_actual_route(userfolder)}/?type=user_detail&username={$=urlencode('{$username}')}" target="_blank"><u>{$username}</u></a></td>
+            </tr>
+            <tr>
+              <td height="5"></td>
+            </tr>
+            <tr>
+              <td><img src="{$face}" border="0" onload="if ({$face_u}) {this.width = {$face_width} ; this.height = {$face_height} ;}" /></td>
+            </tr>
+            <tr>
+              <td height="5"></td>
+            </tr>
+          </table>
+          <table cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+              <td width="40" height="20">{$str_topic}</td>
+              <td>{$num_topic}</td>
+            </tr>
+            <tr>
+              <td height="20">{$str_integral}</td>
+              <td>{$integral}</td>
+            </tr>
+            <tr>
+              <td height="20">{$str_regtime}</td>
+              <td>{$regtime}</td>
+            </tr>
+          </table>
+        </td>
+        <td valign="top">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td width="50" height="25"><a href="{$userfolder}/?type=user_detail&username={$=urlencode('{$username}')}"><img src="{$images}icon/profile.gif" border="0" /></a><td>
+              <td width="40"><a href="{$userfolder}/message/?type=send&username={$=urlencode('{$username}')}"><img src="{$images}icon/mail.gif" border="0" /></a></td>
+              <td width="40"><a href="mailto:{$email}"><img src="{$images}icon/email.gif" border="0" /></a></td>
+              <td width="40"><a href="./?type=edit&tid={$tid}&backurl={$=urlencode(nurl)}"><img src="{$images}icon/edit.gif" border="0" /></a></td>
+              <td><a href="javascript:forum_quote('{$sid}','{$tid}','content');"><img src="{$images}icon/quote.gif" border="0" /></a></td>
+            </tr>
+          </table>
+          <table cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+              <td height="25"><img src="{$images}tp/{$icon}.gif" border="0" class="absmiddle" /> <b>{$topic}</b></td>
+            </tr>
+            <tr>
+              <td height="10"></td>
+            </tr>
+            <tr>
+              <td><div class="contents">{$content}</div></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><img src="{$images}icon/time.gif" border="0" class="absmiddle" /> {$time}</td>
+        <td><img src="{$images}icon/sign.gif" border="0" class="absmiddle" /> {$sign}</td>
+      </tr>{$recurrence_ida}
+      <tr>
+        <td colspan="2"><div id="cutepage" class="cutepage">{$cpagestr}</div></td>
+      </tr>
+    </table>
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td colspan="2" class="tbt">{$=itake('module.topicreply', 'lng')}</td>
+      </tr>
+      <tr>
+        <td valign="top">{$topic_reply}
+          <form action="{$=nuri}?action=reply&tid={$tid}&backurl={$=urlencode(nurl)}" method="post">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td width="80" height="25">{$=itake('config.replytopic', 'lng')}</td>
+              <td><input type="text" name="topic" size="40" maxlength="50" class="text" /></td>
+            </tr>
+            <tr>
+              <td height="25">{$=itake('config.mood', 'lng')}</td>
+              <td>{$=show_xmlinfo_select("sel_mood.all", 0, "icon:radio")}</td>
+            </tr>
+            <tr>
+              <td height="35">{$=itake('global.lng_config.ubb', 'lng')}</td>
+              <td>{$=ubb_bar('content')}</td>
+            </tr>
+            <tr>
+              <td height="25"><font class="red">*</font> {$=itake('config.replycontent', 'lng')}</td>
+              <td><textarea rows="8" name="content" id="content" cols="75" ondblclick='this.rows+=3;' onblur='this.rows=8;' class="textarea"></textarea></td>
+            </tr>
+            <tr>
+              <td height="35">{$=itake('global.lng_config.em', 'lng')}</td>
+              <td>{$=em_bar('content')}</td>
+            </tr>
+            <tr>
+              <td height="25">{$=itake('config.topicmode', 'lng')}</td>
+              <td>{$=show_xmlinfo_select("sel_topicmode.all", 1, "ubb:radio")}</td>
+            </tr>{$recurrence_valcode}
+            <tr>
+              <td height="25">{$=itake('global.lng_config.valcode', 'lng')}</td>
+              <td><input type="text" name="valcode" size="4" class="text" /> {$=valcode}</td>
+            </tr>{$recurrence_valcode}
+            <tr>
+              <td height="35"></td>
+              <td><input type="submit" name="submit" value="{$=itake('global.lng_config.submit','lng')}" class="button" />&nbsp;<input type="reset" name="reset" value="{$=itake('global.lng_config.reset','lng')}" class="button" /></td>
+            </tr>
+          </table>
+          </form>{$$}
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td class="red" class="tda">{$=itake('config.lockinfo', 'lng')}</td>
+            </tr>
+          </table>{$topic_reply}
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+{$=web_foot(nfoot)}
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[topic_release]]></name>
+      <tpl_default><![CDATA[{$=web_head(nhead)}
+{$=echo_error()}
+<script type="text/javascript" src="{$global.images}js/selects.js"></script>
+<script type="text/javascript">
+function loader_show(strers)
+{
+  get_id('uploadInfo').innerHTML = strers;
+};
+
+function loader_remove()
+{
+  get_id('uploadInfo').innerHTML = "";
+};
+
+function bfsubmit()
+{
+  {$recurrence_user_upload_script}get_id("content_files_list").value = get_selects_list(get_id('content_files'));{$recurrence_user_upload_script}
+};
+</script>
+<div id="middle">
+  <div id="middleContent2">{$=module_data_top()}
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt">{$=itake('module.newtopic', 'lng')}</td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <form action="{$=nuri}?action=release&sid={$sid}" method="post" onsubmit="bfsubmit();">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td width="80" height="25">{$=itake('config.author', 'lng')}</td>
+              <td>{$=nusername}</td>
+            </tr>
+            <tr>
+              <td height="25"><font class="red">*</font> {$=itake('config.topic', 'lng')}</td>
+              <td><select name="topictype" class="select" onchange="get_id('topic').value += this.options[this.selectedIndex].text;">{$=show_xmlinfo_select("sel_topictype.all", 0, "select")}</select> <input type="text" name="topic" id="topic" size="40" maxlength="50" value="{$=htmlencode(request.form('topic'))}" class="text" /></td>
+           </tr>{$recurrence_vote}
+            <tr>
+              <td height="25">{$=itake('config.voteop', 'lng')}</td>
+              <td>{$=show_xmlinfo_select("sel_vote_type.all", get_num(request.form('vote_type'), 0), "vote_type:radio")} {$=itake('config.backday', 'lng')} <select name="vote_day">{$=show_xmlinfo_select("sel_vote_day.all", get_num(request.form('vote_day'), 0), "select")}</select></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><textarea rows="5" name="vote_content" id="vote_content" cols="60" class="textarea">{$=htmlencode(request.form('vote_content'))}</textarea></td>
+            </tr>
+            <tr>
+              <td height="25">{$=itake('config.votenot', 'lng')}</td>
+              <td>{$=ireplace('config.votenotice', 'lng')}</td>
+            </tr>{$recurrence_vote}
+            <tr>
+              <td height="25">{$=itake('config.mood', 'lng')}</td>
+              <td>{$=show_xmlinfo_select("sel_mood.all", get_num(request.form('icon'), 0), "icon:radio")}</td>
+            </tr>
+            <tr>
+              <td height="35">{$=itake('global.lng_config.ubb', 'lng')}</td>
+              <td>{$=ubb_bar('content')}</td>
+            </tr>
+            <tr>
+              <td><font class="red">*</font> {$=itake('config.content', 'lng')}</td>
+              <td><textarea rows="8" name="content" id="content" cols="75" ondblclick='this.rows+=3;' class="textarea">{$=htmlencode(request.form('content'))}</textarea></td>
+            </tr>
+            <tr>
+              <td height="35">{$=itake('global.lng_config.em', 'lng')}</td>
+              <td>{$=em_bar('content')}</td>
+            </tr>
+            <tr>{$recurrence_user_upload}
+              <td height="25">{$=itake('config.files','lng')}</td>
+              <td><input type="hidden" name="content_files_list" id="content_files_list"><select name="content_files" id="content_files" class="select" onkeydown="selects.displace(this, this.selectedIndex, event.keyCode)">{$=get_forum_files_list(htmlencode(request.form('content_files_list')))}</select> <input type="button" class="button" value="{$=itake('global.lng_config.delete','lng')}" onclick="selects.remove(get_id('content_files'))" /> <input type="button" class="button" value="{$=itake('config.insert_url','lng')}" onclick="itextner('content', get_id('content_files').value)" />&nbsp;&nbsp;&nbsp;<span id="uploadInfo" class="ash"></span></td>
+            </tr>
+            <tr>
+              <td height="25">{$=itake('global.lng_config.upload','lng')}</td>
+              <td><iframe src="?type=upload&upform=form&uptext=content_files&upftype=1" width="100%" height="25" scrolling="no" marginwidth="0" marginheight="0" align="middle" name="upload" frameborder="0"></iframe></td>
+            </tr>{$recurrence_user_upload}
+            <tr>
+              <td height="25">{$=itake('config.topicmode', 'lng')}</td>
+              <td>{$=show_xmlinfo_select("sel_topicmode.all", get_num(request.form('ubb'), 1), "ubb:radio")}</td>
+            </tr>{$recurrence_valcode}
+            <tr>
+              <td height="25">{$=itake('global.lng_config.valcode', 'lng')}</td>
+              <td><input type="text" name="valcode" size="4" value="{$=htmlencode(request.form('valcode'))}" /> {$=valcode}</td>
+            </tr>{$recurrence_valcode}
+            <tr>
+              <td height="35"></td>
+              <td><input type="submit" name="submit" value="{$=itake('global.lng_config.submit','lng')}" class="button" />&nbsp;<input type="reset" name="reset" value="{$=itake('global.lng_config.reset','lng')}" class="button" /></td>
+            </tr>
+          </table>
+          </form>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+{$=web_foot(nfoot)}
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[topic_edit]]></name>
+      <tpl_default><![CDATA[{$=web_head(nhead)}
+{$=echo_error()}
+<script type="text/javascript" src="{$global.images}js/loader.js"></script>
+<script type="text/javascript" src="{$global.images}js/selects.js"></script>
+<script type="text/javascript">
+function loader_show(strers)
+{
+  get_id('uploadInfo').innerHTML = strers;
+};
+
+function loader_remove()
+{
+  get_id('uploadInfo').innerHTML = "";
+};
+
+function bfsubmit()
+{
+  {$recurrence_user_upload_script}get_id("content_files_list").value = get_selects_list(get_id('content_files'));{$recurrence_user_upload_script}
+};
+</script>
+<div id="middle">
+  <div id="middleContent2">{$=module_data_top()}
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt">{$=itake('module.edittopic', 'lng')}</td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <form action="{$=nuri}?action=edit&sid={$sid}&tid={$tid}&backurl={$backurl}" method="post" onsubmit="bfsubmit();">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td width="80" height="25">{$=itake('config.author', 'lng')}</td>
+              <td>{$=nusername}</td>
+            </tr>
+            <tr>
+              <td height="25"><font class="red">*</font> {$=itake('config.topic', 'lng')}</td>
+              <td><select name="topictype" class="select" onchange="get_id('topic').value += this.options[this.selectedIndex].text;">{$=show_xmlinfo_select("sel_topictype.all", 0, "select")}</select> <input type="text" name="topic" id="topic" size="40" maxlength="50" value="{$=get_hstr(htmlencode(request.form('topic')), htmlencode(rsvle('topic')))}" /></td>
+            </tr>
+            <tr>
+              <td height="25">{$=itake('config.mood', 'lng')}</td>
+              <td>{$=show_xmlinfo_select("sel_mood.all", get_num(get_hstr(htmlencode(request.form('icon')), htmlencode(rsvle('icon'))), 0), "icon:radio")}</td>
+            </tr>
+            <tr>
+              <td height="35">{$=itake('global.lng_config.ubb', 'lng')}</td>
+              <td>{$=ubb_bar('content')}</td>
+            </tr>
+            <tr>
+              <td><font class="red">*</font> {$=itake('config.content', 'lng')}</td>
+              <td><textarea rows="8" name="content" id="content" cols="75" ondblclick='this.rows+=3;' onblur='this.rows=8;' class="textarea">{$=get_hstr(htmlencode(request.form('content')), htmlencode(get_forum_content(rsvle('content_database'), get_num(request.querystring('tid'), 0))))}</textarea></td>
+            </tr>
+            <tr>{$recurrence_user_upload}
+              <td height="25">{$=itake('config.files','lng')}</td>
+              <td><input type="hidden" name="content_files_list" id="content_files_list"><select name="content_files" id="content_files" class="select" onkeydown="selects.displace(this, this.selectedIndex, event.keyCode)">{$=get_forum_files_list(get_hstr(htmlencode(request.form('content_files_list')), htmlencode(rsvle('content_files_list'))))}</select> <input type="button" class="button" value="{$=itake('global.lng_config.delete','lng')}" onclick="selects.remove(get_id('content_files'))" /> <input type="button" class="button" value="{$=itake('config.insert_url','lng')}" onclick="itextner('content', get_id('content_files').value)" />&nbsp;&nbsp;&nbsp;<span id="uploadInfo" class="ash"></span></td>
+            </tr>
+            <tr>
+              <td height="25">{$=itake('global.lng_config.upload','lng')}</td>
+              <td><iframe src="?type=upload&upform=form&uptext=content_files&upftype=1" width="100%" height="25" scrolling="no" marginwidth="0" marginheight="0" align="middle" name="upload" frameborder="0"></iframe></td>
+            </tr>{$recurrence_user_upload}
+            <tr>
+              <td height="35">{$=itake('global.lng_config.em', 'lng')}</td>
+              <td>{$=em_bar('content')}</td>
+            </tr>
+            <tr>
+              <td height="25">{$=itake('config.topicmode', 'lng')}</td>
+              <td>{$=show_xmlinfo_select("sel_topicmode.all", get_num(get_hstr(htmlencode(request.form('ubb')), htmlencode(rsvle('ubb'))), 1), "ubb:radio")}</td>
+            </tr>{$recurrence_valcode}
+            <tr>
+              <td height="25">{$=itake('global.lng_config.valcode', 'lng')}</td>
+              <td><input type="text" name="valcode" size="4" value="{$=htmlencode(request.form('valcode'))}" class="text" /> {$=valcode}</td>
+            </tr>{$recurrence_valcode}
+            <tr>
+              <td height="35"></td>
+              <td><input type="submit" name="submit" value="{$=itake('global.lng_config.submit','lng')}" class="button" />&nbsp;<input type="reset" name="reset" value="{$=itake('global.lng_config.reset','lng')}" class="button" /></td>
+            </tr>
+          </table>
+          </form>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+{$=web_foot(nfoot)}
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[manage_topic]]></name>
+      <tpl_default><![CDATA[{$=web_head(nhead)}
+<div id="middle">
+  <div id="middleContent2">{$=module_data_top()}{$=module_data_manage_menu()}
+    <form method="post" name="sel_form" action="{$=nuri}?action=manage&mtype=topic&sid={$sid}&backurl={$=urlencode(nurl)}">
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td colspan="7" class="tbt">{$=itake('module.topiclist', 'lng')}</td>
+      </tr>
+      <tr>
+        <td colspan="7" align="right"><img src="{$images}topic/elite.gif" border="0" class="absmiddle" />&nbsp;<a href="{$=replace_querystring('att', 'elite')}" target="_self">{$=itake("topic.elite", "lng")}</a>&nbsp;<img src="{$images}topic/lock.gif" border="0" class="absmiddle" />&nbsp;<a href="{$=replace_querystring('att', 'lock')}" target="_self">{$=itake("topic.lock", "lng")}</a>&nbsp;<img src="{$images}topic/top.gif" border="0" class="absmiddle" />&nbsp;<a href="{$=replace_querystring('att', 'top')}" target="_self">{$=itake("topic.top", "lng")}</a>&nbsp;<img src="{$images}topic/htop.gif" border="0" class="absmiddle" />&nbsp;<a href="{$=replace_querystring('att', 'htop')}" target="_self">{$=itake("topic.htop", "lng")}</a>&nbsp;<img src="{$images}icon/hidden.gif" border="0" class="absmiddle" />&nbsp;<a href="{$=replace_querystring('att', 'hidden')}" target="_self">{$=itake("topic.hidden", "lng")}</a></td>
+      </tr>
+      <tr>
+        <td width="20" align="center"><input type="checkbox" name="sel_all" class="checkbox" onClick="select_all()"></td>
+        <td width="20" align="center"><img src="{$images}topic/ico.gif" border="0"></td>
+        <td>{$=itake('config.topic', 'lng')}</td>
+        <td width="100">{$=itake('config.author', 'lng')}</td>
+        <td width="50" align="center">{$=itake('config.reply', 'lng')}</td>
+        <td width="50" align="center">{$=itake('config.count', 'lng')}</td>
+        <td width="120">{$=itake('config.lastreply', 'lng')}</td>
+      </tr>{$recurrence_ida}
+      <tr>
+        <td align="center"><input type="checkbox" name="sel_id" value="{$id}" class="checkbox" /></td>
+        <td align="center"><img src="{$images}tp/{$icon}.gif" border="0" /></td>
+        <td><a href="./?type=manage&mtype=detail&sid={$sid}&tid={$id}">{$topic}</a> {$topicpic}</td>
+        <td><a href="{$userfolder}/?type=user_detail&username={$=urlencode('{$author}')}">{$author}</a></td>
+        <td align="center">{$reply}</td>
+        <td align="center">{$count}</td>
+        <td>{$lasttime} <a href="{$userfolder}/?type=user_detail&username={$=urlencode('{$lastuser}')}">{$lastuser}</a></td>
+      </tr>{$recurrence_ida}
+      <tr>
+        <td colspan="7"><div id="cutepage" class="cutepage">{$cpagestr}</div></td>
+      </tr>
+      <tr>
+        <td height="35" colspan="7" align="right">{$=sel_control}</td>
+      </tr>
+    </table>
+    </form>
+    <table cellpadding="0" cellspacing="0" class="tables">
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+  </div>
+</div>
+{$=web_foot(nfoot)}
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[manage_detail]]></name>
+      <tpl_default><![CDATA[{$=web_head(nhead)}
+<div id="middle">
+  <div id="middleContent2">{$=module_data_top()}{$=module_data_manage_menu()}
+    <form method="post" name="sel_form" action="{$=nuri}?action=manage&mtype=detail&sid={$sid}&backurl={$=urlencode(nurl)}">
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td colspan="2" class="tbt"><input type="checkbox" name="sel_all" class="checkbox" onClick="select_all()" /> {$=itake('module.topicdetail', 'lng')}</td>
+      </tr>{$recurrence_ida}
+      <tr>
+        <td width="140" valign="top">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td height="25">{$username}</td>
+            </tr>
+            <tr>
+              <td><img src="{$face}" border="0" onload="if ({$face_u}) {this.width = {$face_width} ; this.height = {$face_height} ;}"></td>
+            </tr>
+          </table>
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td width="40" height="20">{$str_topic}</td>
+              <td>{$num_topic}</td>
+            </tr>
+            <tr>
+              <td height="20">{$str_integral}</td>
+              <td>{$integral}</td>
+            </tr>
+            <tr>
+              <td height="20">{$str_regtime}</td>
+              <td>{$regtime}</td>
+            </tr>
+          </table>
+        </td>
+        <td valign="top">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td height="25"><img src="{$images}tp/{$icon}.gif" border="0" class="absmiddle" /> <b>{$topic}</b></td>
+            </tr>
+            <tr>
+              <td height="10"></td>
+            </tr>
+            <tr>
+              <td><div class="contents">{$content}</div></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><img src="{$images}icon/time.gif" border="0" class="absmiddle" /> {$time}</td>
+        <td><input type="checkbox" name="sel_id" value="{$id}" class="checkbox" />{$topicpic}</td>
+      </tr>{$recurrence_ida}
+      <tr>
+        <td colspan="2"><div id="cutepage" class="cutepage">{$cpagestr}</div></td>
+      </tr>
+      <tr>
+        <td height="35" colspan="2" align="right">{$=sel_control}</td>
+      </tr>
+    </table>
+    </form>
+    <table cellpadding="0" cellspacing="0" class="tables">
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+  </div>
+</div>
+{$=web_foot(nfoot)}
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[manage_blacklist]]></name>
+      <tpl_default><![CDATA[{$=web_head(nhead)}
+<div id="middle">
+  <div id="middleContent2">{$=module_data_top()}{$=module_data_manage_menu()}
+    <form method="post" name="sel_form" action="{$=nuri}?action=manage&mtype=blacklist&sid={$sid}&backurl={$=urlencode(nurl)}">
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td colspan="5" class="tbt">{$=itake('config.blacklist_list', 'lng')}</td>
+      </tr>
+      <tr>
+        <td width="20" align="center"><input type="checkbox" name="sel_all" class="checkbox" onclick="select_all();" /></td>
+        <td width="100">{$=itake('blacklist.username', 'lng')}</td>
+        <td width="100">{$=itake('blacklist.admin', 'lng')}</td>
+        <td width="120">{$=itake('blacklist.time', 'lng')}</td>
+        <td>{$=itake('blacklist.remark', 'lng')}</td>
+      </tr>{$recurrence_ida}
+      <tr>
+        <td align="center"><input type="checkbox" name="sel_id" value="{$id}" class="checkbox" /></td>
+        <td><a href="{$userfolder}/?user_detail&username={$=urlencode('{$username}')}" target="_blank">{$username}</a></td>
+        <td>{$admin}</td>
+        <td>{$time}</td>
+        <td>{$remark}</td>
+      </tr>{$recurrence_ida}
+      <tr>
+        <td colspan="5"><div id="cutepage" class="cutepage">{$cpagestr}</div></td>
+      </tr>
+      <tr>
+        <td height="35" colspan="5" align="right">{$=sel_control}</td>
+      </tr>
+    </table>
+    </form>
+    <form action="{$=nuri}?action=manage&mtype=add_blacklist&sid={$sid}&backurl={$=urlencode(nurl)}" method="post">
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt">{$=itake('blacklist.add', 'lng')}</td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td width="60" height="25" align="right">{$=itake('global.lng_config.username', 'lng')}</td>
+              <td width="10"></td>
+              <td><input type="text" name="username" size="20" class="text" /></td>
+            </tr>
+            <tr>
+              <td height="25" align="right">{$=itake('blacklist.remark', 'lng')}</td>
+              <td></td>
+              <td><input type="text" name="remark" size="40" class="text" /></td>
+            </tr>
+            <tr>
+              <td height="35" align="right"></td>
+              <td></td>
+              <td><input type="submit" name="submit" value="{$=itake('global.lng_config.submit','lng')}" class="button" />&nbsp;<input type="reset" name="reset" value="{$=itake('global.lng_config.reset','lng')}" class="button" /></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    </form>
+    <table cellpadding="0" cellspacing="0" class="tables">
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+  </div>
+</div>
+{$=web_foot(nfoot)}
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[search_list]]></name>
+      <tpl_default><![CDATA[{$=web_head(nhead)}
+<div id="middle">
+  <div id="middleContent2">{$=module_data_top()}
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt">{$=itake('module.search', 'lng')}</td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <form method="get">
+          <input type="hidden" name="type" value="search">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td height="35">{$=itake('module.search_sid', 'lng')}<select name="sid" class="select"><option value="" >{$=itake("global.lng_config.all", "lng")}</option>{$=sel_forum_sort(0, {$sid}, nlng)}</select> {$=itake('module.search_author', 'lng')}<input type="text" name="author" size="10" value="{$author}" class="text" /> {$=itake('module.search_keyword', 'lng')}<input type="text" name="keyword" size="10" value="{$keyword}" class="text" /> <input type="submit" value="{$=itake('global.lng_config.search','lng')}" class="button" /></td>
+            </tr>
+          </table>
+          </form>
+        </td>
+      </tr>
+    </table>
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td colspan="7" class="tbt">{$=itake('module.topiclist', 'lng')}</td>
+      </tr>
+      <tr>
+        <td width="22" align="center"><img src="{$images}topic/ico.gif" border="0" /></td>
+        <td width="22" align="center"><img src="{$images}topic/ico.gif" border="0" /></td>
+        <td>{$=itake('config.topic', 'lng')}</td>
+        <td width="100">{$=itake('config.author', 'lng')}</td>
+        <td width="50" align="center">{$=itake('config.reply', 'lng')}</td>
+        <td width="50" align="center">{$=itake('config.count', 'lng')}</td>
+        <td width="120">{$=itake('config.lastreply', 'lng')}</td>
+      </tr>{$recurrence_idb}
+      <tr>
+        <td align="center"><img src="{$images}topic/{$ico}.gif" border="0" /></td>
+        <td align="center"><img src="{$images}tp/{$icon}.gif" border="0" /></td>
+        <td><a href="./?type=detail&sid={$sid}&tid={$tid}" target="_blank">{$topic}</a> {$topicpic}</td>
+        <td><a href="{$userfolder}/?type=user_detail&username={$=urlencode('{$author}')}" target="_blank">{$author}</a></td>
+        <td align="center">{$reply}</td>
+        <td align="center">{$count}</td>
+        <td>{$lasttime} <a href="{$userfolder}/?type=user_detail&username={$=urlencode('{$lastuser}')}" target="_blank">{$lastuser}</a></td>
+      </tr>{$recurrence_idb}
+      <tr>
+        <td colspan="7"><div id="cutepage" class="cutepage">{$cpagestr}</div></td>
+      </tr>
+    </table>
+    <table cellpadding="0" cellspacing="0" class="tables">
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+  </div>
+</div>
+{$=web_foot(nfoot)}
+]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

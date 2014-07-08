@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[base]]></name>
+      <tpl_default><![CDATA[<base id="base" href="{$=get_lrstr(nurlpre & nuri, "/", "leftr")}/" />]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[default_head]]></name>
+      <tpl_default><![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+{$=web_base()}<meta http-equiv="x-ua-compatible" content="IE=EmulateIE7" />
+<meta http-equiv="Content-Type" content="text/html; charset={$=ncharset}" />
+<meta name="keywords" content="{$=itake('global.module.keywords', 'lng')}" />
+<meta name="description" content="{$=itake('global.module.description', 'lng')}" />
+<title>{$=web_title(ntitle)}</title>
+<script type="text/javascript" src="{$global.images}js/main.js"></script>
+<script type="text/javascript" src="{$global.images}js/writeflashhtml2.js"></script>
+<link type="text/css" rel="stylesheet" href="{$global.images}theme/{$=nskin}/layout.css" />
+</head>
+<body>
+<div id="top">
+  <div id="topContent">
+    <h2><a href="{$=get_actual_route("./")}">{$=itake('global.module.web_title', 'lng')}</a></h2>
+    <div id="panel"><span class="hand" onclick="this.style.behavior='url(#default#homepage)'; this.sethomepage(document.location); return false;">{$=itake('global.module.set_homepage', 'lng')}</span>&nbsp;&nbsp;<span class="hand" onclick="window.external.addfavorite (document.location,document.title); return false;">{$=itake('global.module.add_favorite', 'lng')}</span></div>
+    <div id="menu">
+      <ul>
+        <li><a href="{$=get_actual_route('./')}">{$=itake('global.lng_menu.homepage', 'lng')}</a></li>
+        <li><a href="{$=get_actual_route('article')}">{$=itake('global.lng_menu.article', 'lng')}</a></li>
+        <li><a href="{$=get_actual_route('product')}">{$=itake('global.lng_menu.product', 'lng')}</a></li>
+        <li><a href="{$=get_actual_route('download')}">{$=itake('global.lng_menu.download', 'lng')}</a></li>
+        <li><a href="{$=get_actual_route('shop')}">{$=itake('global.lng_menu.shop', 'lng')}</a></li>
+        <li><a href="{$=get_actual_route('forum')}">{$=itake('global.lng_menu.forum', 'lng')}</a></li>
+      </ul>
+    </div>
+  </div>
+</div>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[default_foot]]></name>
+      <tpl_default><![CDATA[<div id="bottom">
+  <div id="bottomContent">
+    <p>Copyright 2004-{$=Year(Now())} JTBC(<a href="http://www.jtbc.net.cn/" target="_blank">CMS</a>) <a href="http://www.jetiben.com/" target="_blank">Jetiben.Com</a> All Rights Reserved.</p>
+    <div id="bottomMenu">{$=itransfer('new', 'm1', 'topx=10;tnum=30;genre=aboutus;osql= and ab_lng=#' & nlng & '#')}<a href="{$=get_actual_route('support')}/gbook/" target="_self">{$=itake('global.lng_menu.gbook', 'lng')}</a></div>
+  </div>
+</div>
+</body>
+</html>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[chead]]></name>
+      <tpl_default><![CDATA[<html>
+<head>
+<meta http-equiv="x-ua-compatible" content="IE=EmulateIE7" />
+<meta http-equiv="Content-Type" content="text/html; charset={$=ncharset}" />
+<link href="{$global.images}theme/{$=nskin}/layout.css" type="text/css" rel="stylesheet" />
+<title>{$=web_title(ntitle)}</title>
+<script type="text/javascript" src="{$global.images}js/main.js"></script>
+</head>
+<body>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[cfoot]]></name>
+      <tpl_default><![CDATA[</body>
+</html>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[clear_head]]></name>
+      <tpl_default><![CDATA[<html>
+<head>
+<meta http-equiv="x-ua-compatible" content="IE=EmulateIE7" />
+<meta http-equiv="Content-Type" content="text/html; charset={$=ncharset}" />
+<meta http-equiv="pragma" content="no-cache" />
+<style>
+body {margin-left: 0px; margin-top: 2px; margin-right: 0px; margin-bottom: 0px; font-size:12px;}
+input {border:1px solid #c0c0c0; padding: 1px; height: 20px;}
+h1 {margin:10px; font-size:14px; color:red;}
+h6 {margin:10px; font-size:11px; color:#999999;}
+h6 a {color:#999999; text-decoration: none;}
+h6 a:hover {color:#333333; text-decoration: none;}
+</style>
+<title>JTBC</title>
+<script type="text/javascript" src="{$global.images}js/main.js"></script>
+<script type="text/javascript" src="{$global.images}js/selects.js"></script>
+</head>
+<body>
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[clear_foot]]></name>
+      <tpl_default><![CDATA[</body>
+</html>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[admin_head]]></name>
+      <tpl_default><![CDATA[<html>
+<head>
+<meta http-equiv="x-ua-compatible" content="IE=EmulateIE7" />
+<meta http-equiv="Content-Type" content="text/html; charset={$=ncharset}" />
+<link href="{$=get_actual_route(adminfolder & "/common/css/default.css")}" type="text/css" rel="stylesheet" />
+<title>{$=web_title(ntitle)}</title>
+<script language="javascript" src="{$global.images}js/main.js"></script>
+<script language="javascript" src="{$global.images}js/selects.js"></script>
+<script language="javascript" src="{$global.images}js/manage.js"></script>
+</head>
+<body onload="nhrefstate()">]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[admin_foot]]></name>
+      <tpl_default><![CDATA[</body>
+</html>]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[list]]></name>
+      <tpl_default><![CDATA[{$=web_head(nhead)}
+<div id="middle">
+  <div id="middleContent">
+    <div class="middleSide">{$=user_data_member_side}</div>
+    <div class="middleMain">
+      <div class="middleMainContent">
+        <table cellpadding="0" cellspacing="0" class="tablen">
+          <tr>
+            <td class="nav"><span>{$=itake('member.message', 'lng')}</span></td>
+          </tr>
+          <tr>
+            <td class="list" valign="top">
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td height="30">
+                    <table width="160" border="0" cellspacing="0" cellpadding="0" align="center">
+                      <tr>
+                        <td width="40"><a href="./?type=list"><img src="{$images}inbox.gif" border="0"></a></td>
+                        <td width="40"><a href="./?type=listb"><img src="{$images}issend.gif" border="0"></a></td>
+                        <td width="40"><a href="{$=get_actual_route(userfolder)}/friend/?type=list"><img src="{$images}address.gif" border="0"></a></td>
+                        <td width="40"><a href="./?type=send"><img src="{$images}write.gif" border="0"></a></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              <form method="post" name="sel_form" action="{$=nuri}?action=control&backurl={$=urlencode(nurl)}">
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td width="40" height="25"><strong>{$=itake('manage.state','lng')}</strong></td>
+                  <td><strong>{$=itake('global.lng_config.topic','lng')}</strong></td>
+                  <td width="100"><strong>{$=itake('manage.addresser','lng')}</strong></td>
+                  <td width="120"><strong>{$=itake('manage.time','lng')}</strong></td>
+                  <td width="50"><strong>{$=itake('manage.len','lng')}</strong></td>
+                  <td width="30"><input type="checkbox" name="sel_all" class="checkbox" onclick="select_all()" class="checkbox" /></td>
+                </tr>{$recurrence_ida}
+                <tr>
+                  <td height="25"><img src="{$images}state/{$read}.gif" border="0" /></td>
+                  <td><a href="./?type=detail&id={$id}">{$topic}</a></td>
+                  <td><a href="{$=get_actual_route(userfolder)}/?type=user_detail&username={$=urlencode('{$addresser}')}">{$addresser}</a></td>
+                  <td>{$time}</td>
+                  <td>{$len}</td>
+                  <td><input type="checkbox" name="sel_id" value="{$id}" class="checkbox" /></td>
+                </tr>{$recurrence_ida}
+              </table>
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td width="200" height="35" class="red"><img src="{$images}state/0.gif" border="0"> {$=itake('manage.state0', 'lng')} <img src="{$images}state/1.gif" border="0"> {$=itake('manage.state1', 'lng')}</td>
+                  <td><div id="cutepage" class="cutepage">{$cpagestr}</div></td>
+                </tr>
+              </table>
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td height="5"></td>
+                </tr>
+                <tr>
+                  <td height="25" align="right"><input type="submit" value="{$=itake('manage.remove', 'lng')}" class="button" onclick="return click_return('{$=itake('global.lng_common.sure', 'lng')}')"></td>
+                </tr>
+                <tr>
+                  <td height="5"></td>
+                </tr>
+              </table>
+              </form>
+            </td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+{$=web_foot(nfoot)}
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[listb]]></name>
+      <tpl_default><![CDATA[{$=web_head(nhead)}
+<div id="middle">
+  <div id="middleContent">
+    <div class="middleSide">{$=user_data_member_side}</div>
+    <div class="middleMain">
+      <div class="middleMainContent">
+        <table cellpadding="0" cellspacing="0" class="tablen">
+          <tr>
+            <td class="nav"><span>{$=itake('member.message', 'lng')}</span></td>
+          </tr>
+          <tr>
+            <td class="list" valign="top">
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td height="30">
+                    <table width="160" border="0" cellspacing="0" cellpadding="0" align="center">
+                      <tr>
+                        <td width="40"><a href="./?type=list"><img src="{$images}inbox.gif" border="0"></a></td>
+                        <td width="40"><a href="./?type=listb"><img src="{$images}issend.gif" border="0"></a></td>
+                        <td width="40"><a href="{$=get_actual_route(userfolder)}/friend/?type=list"><img src="{$images}address.gif" border="0"></a></td>
+                        <td width="40"><a href="./?type=send"><img src="{$images}write.gif" border="0"></a></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td width="40" height="25"><strong>{$=itake('manage.state','lng')}</strong></td>
+                  <td><strong>{$=itake('global.lng_config.topic','lng')}</strong></td>
+                  <td width="100"><strong>{$=itake('manage.recipients','lng')}</strong></td>
+                  <td width="120"><strong>{$=itake('manage.time','lng')}</strong></td>
+                  <td width="50"><strong>{$=itake('manage.len','lng')}</strong></td>
+                </tr>{$recurrence_ida}
+                <tr>
+                  <td height="25"><img src="{$images}state/{$read}.gif" border="0" /></td>
+                  <td><a href="./?type=detail&id={$id}">{$topic}</a></td>
+                  <td><a href="{$=get_actual_route(userfolder)}/?type=user_detail&username={$=urlencode('{$recipients}')}" target="_blank">{$recipients}</a></td>
+                  <td>{$time}</td>
+                  <td>{$len}</td>
+                </tr>{$recurrence_ida}
+              </table>
+              <table border="0" width="100%" cellSpacing="0" cellPadding="0">
+                <tr>
+                  <td width="200" height="35" class="red"><img src="{$images}state/0.gif" border="0"> {$=itake('manage.state0', 'lng')} <img src="{$images}state/1.gif" border="0"> {$=itake('manage.state1', 'lng')}</td>
+                  <td><div id="cutepage" class="cutepage">{$cpagestr}</div></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+{$=web_foot(nfoot)}
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[detail]]></name>
+      <tpl_default><![CDATA[{$=web_head(nhead)}
+<div id="middle">
+  <div id="middleContent">
+    <div class="middleSide">{$=user_data_member_side}</div>
+    <div class="middleMain">
+      <div class="middleMainContent">
+        <table cellpadding="0" cellspacing="0" class="tablen">
+          <tr>
+            <td class="nav"><span>{$=itake('member.message', 'lng')}</span></td>
+          </tr>
+          <tr>
+            <td class="list" valign="top">
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td height="30">
+                    <table width="160" border="0" cellspacing="0" cellpadding="0" align="center">
+                      <tr>
+                        <td width="40"><a href="./?type=list"><img src="{$images}inbox.gif" border="0"></a></td>
+                        <td width="40"><a href="./?type=listb"><img src="{$images}issend.gif" border="0"></a></td>
+                        <td width="40"><a href="{$=get_actual_route(userfolder)}/friend/?type=list"><img src="{$images}address.gif" border="0"></a></td>
+                        <td width="40"><a href="./?type=send"><img src="{$images}write.gif" border="0"></a></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td height="10"></td>
+                </tr>
+              </table>
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                 <tr>
+                  <td align="center">
+                    <table width="96%" cellspacing="0" cellpadding="0" border="0">
+                      <tr>
+                        <td height="25"><strong>{$topic}</strong></td>
+                      </tr>
+                      <tr>
+                        <td height="5"></td>
+                      </tr>
+                      <tr>
+                        <td height="25" align="right">{$=itake('manage.addresser','lng')}: <a href="./?type=user_detail&username={$addresser}" target="_blank">{$addresser}</a>, {$=itake('manage.time','lng')}: {$time}</td>
+                      </tr>
+                      <tr>
+                        <td height="5"></td>
+                      </tr>
+                      <tr>
+                        <td>{$content}</td>
+                      </tr>
+                      <tr>
+                        <td height="5"></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td height="10"></td>
+                </tr>
+              </table>
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td height="30" align="right"><a href="./?type=send&username={$addresserstr}&topic=Reply:{$topicstr}"><img src="{$images}reply.gif" border="0" /></a>&nbsp;&nbsp;<a href="./?action=delete&id={$id}&backurl={$=urlencode(nurl)}" onclick="return click_return('{$=itake('global.lng_common.sure', 'lng')}')"><img src="{$images}delete.gif" border="0" /></a></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+{$=web_foot(nfoot)}
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[send]]></name>
+      <tpl_default><![CDATA[{$=web_head(nhead)}
+{$=echo_error()}
+<div id="middle">
+  <div id="middleContent">
+    <div class="middleSide">{$=user_data_member_side}</div>
+    <div class="middleMain">
+      <div class="middleMainContent">
+        <table cellpadding="0" cellspacing="0" class="tablen">
+          <tr>
+            <td class="nav"><span>{$=itake('member.message', 'lng')}</span></td>
+          </tr>
+          <tr>
+            <td class="list" valign="top">
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td height="30">
+                    <table width="160" border="0" cellspacing="0" cellpadding="0" align="center">
+                      <tr>
+                        <td width="40"><a href="./?type=list"><img src="{$images}inbox.gif" border="0"></a></td>
+                        <td width="40"><a href="./?type=listb"><img src="{$images}issend.gif" border="0"></a></td>
+                        <td width="40"><a href="{$=get_actual_route(userfolder)}/friend/?type=list"><img src="{$images}address.gif" border="0"></a></td>
+                        <td width="40"><a href="./?type=send"><img src="{$images}write.gif" border="0"></a></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td height="10"></td>
+                </tr>
+              </table>
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                 <tr>
+                  <td align="center">
+                    <form action="{$=nuri}?action=send&backurl={$=urlencode(nuri) & '?type=listb'}" method="post">
+                    <table width="96%" cellspacing="0" cellpadding="0" border="0">
+                      <tr>
+                        <td width="80" height="25">{$=itake('manage.recipients', 'lng')}</td>
+                        <td><input type="text" name="recipients" size="20" class="text" value="{$=get_hstr(htmlencode(request.form('recipients')), htmlencode(request.querystring('username')))}" /></td>
+                      </tr>
+                      <tr>
+                        <td height="25">{$=itake('global.lng_config.topic', 'lng')}</td>
+                        <td><input type="text" name="topic" size="40" class="text" value="{$=get_hstr(htmlencode(request.form('topic')), htmlencode(request.querystring('topic')))}" /></td>
+                      </tr>
+                      <tr>
+                        <td height="35">{$=itake('global.lng_config.ubb', 'lng')}</td>
+                        <td>{$=ubb_bar('content')}</td>
+                      </tr>
+                      <tr>
+                        <td height="25">{$=itake('global.lng_config.content', 'lng')}</td>
+                        <td><textarea rows="5" id="content" name="content" cols="75" ondblclick='this.rows+=3;' onblur='this.rows=5;' class="textarea">{$=htmlencode(request.form('content'))}</textarea></td>
+                      </tr>
+                      <tr>
+                        <td height="35">{$=itake('global.lng_config.em', 'lng')}</td>
+                        <td>{$=em_bar('content')}</td>
+                      </tr>
+                      <tr>
+                        <td height="35"></td>
+                        <td><input type="submit" name="submit" value="{$=itake('global.lng_config.submit','lng')}" class="button" />&nbsp;<input type="reset" name="reset" value="{$=itake('global.lng_config.reset','lng')}" class="button" /></td>
+                      </tr>
+                    </table>
+                    </form>
+                  </td>
+                </tr>
+              </table>
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td height="10"></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+{$=web_foot(nfoot)}
+]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

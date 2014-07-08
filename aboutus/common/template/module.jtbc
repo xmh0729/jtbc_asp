@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[detail]]></name>
+      <tpl_default><![CDATA[{$=web_head(nhead)}
+<div id="middle">
+  <div id="middleContent">
+    <div class="middleSide">
+      <div class="box1">
+        <h3>{$=itake('module.channel_title','lng')}</h3>
+        <ul>{$recurrence_ida}
+          <li><a href="{$=iurl('detail', {$id}, nurltype, 'folder=' & ncreatefolder & ';filetype=' & ncreatefiletype & ';time={$time}')}">{$topic}</a></li>{$recurrence_ida}
+        </ul>
+      </div>
+    </div>
+    <div class="middleMain">
+      <div class="middleMainContent">
+        <table cellpadding="0" cellspacing="0" class="tablen">
+          <tr>
+            <td class="nav"><span>{$=inavigation("module", "")}</span></td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td class="content"><div>{$content}</div></td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td><div id="ct-cutepage" class="cutepage">{$page_sel}</div></td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td align="right">【<a href="javascript:window.print()">{$=itake('global.lng_config.print','lng')}</a>】【<a href="javascript:self.close()">{$=itake('global.lng_config.close','lng')}</a>】</td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<script type="text/javascript">igets('{$=get_actual_route('expansion')}/count/?genre={$=urlencode(ngenre)}&id={$id}', nll);</script>
+{$=web_foot(nfoot)}
+]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

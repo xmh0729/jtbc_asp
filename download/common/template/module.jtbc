@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[list]]></name>
+      <tpl_default><![CDATA[{$=web_head(nhead)}
+<div id="middle">
+  <div id="middleContent">
+    <div class="middleSide">
+      <div class="box1">
+        <h3>{$=itake('module.class', 'lng')}</h3>{$=isort("tpl=1;rnum=1")}
+      </div>
+      <div class="box1">
+        <h3>{$=itake('module.good','lng')}</h3>{$=itransfer("good","1","topx=10;tnum=26")}
+      </div>
+    </div>
+    <div class="middleMain">
+      <div class="middleMainContent">
+        <table cellpadding="0" cellspacing="0" class="tablen">
+          <tr>
+            <td class="nav"><span>{$=inavigation("module", "{$class}")}</span></td>
+          </tr>
+          <tr>
+            <td class="list" valign="top">{$recurrence_ida}
+              <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td height="25"><img src="{$global.images}public/small/sico.gif" border="0"> <a href="{$=iurl('detail', {$id}, nurltype, 'folder=' & ncreatefolder & ';filetype=' & ncreatefiletype & ';time={$time}')}" target="_self" class="b">{$topic}</a></td>
+                  <td width="80">{$time}</td>
+                  <td width="100" align="center"><img src="{$images}star/{$star}.gif" border="0"></td>
+                  <td width="50" align="center">{$count}</td>
+                  <td width="80" align="center">{$size}</td>
+                </tr>
+              </table>
+              <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td>{$scont}</td>
+                </tr>
+              </table>
+              <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="110" height="25">{$=itake('config.lng', 'lng')}: {$lng}</td>
+                  <td width="110">{$=itake('config.accredit', 'lng')}: {$accredit}</td>
+                  <td>{$=itake('config.runco', 'lng')}: {$runco}</td>
+                </tr>
+              </table>
+              <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td height="1" background="{$global.images}public/small/line.gif"></td>
+                </tr>
+                <tr>
+                  <td height="5"></td>
+                </tr>
+              </table>{$recurrence_ida}
+            </td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td><div id="cutepage" class="cutepage">{$cpagestr}</div></td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+{$=web_foot(nfoot)}
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[detail]]></name>
+      <tpl_default><![CDATA[{$=web_head(nhead)}
+<div id="middle">
+  <div id="middleContent">
+    <div class="middleSide">
+      <div class="box1">
+        <h3>{$=itake('module.class', 'lng')}</h3>{$=isort("tpl=1;rnum=1")}
+      </div>
+      <div class="box1">
+        <h3>{$=itake('module.good','lng')}</h3>{$=itransfer("good","1","topx=10;tnum=26")}
+      </div>
+    </div>
+    <div class="middleMain">
+      <div class="middleMainContent">
+        <table cellpadding="0" cellspacing="0" class="tablen">
+          <tr>
+            <td class="nav"><span>{$=inavigation("module", "{$class}")}</span></td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td class="topic"><div>{$topic}</div></td>
+          </tr>
+          <tr>
+            <td valign="top">
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td width="50%">
+                    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                      <tr>
+                        <td width="100" height="25">{$=itake('config.size','lng')}</td>
+                        <td>{$size}</td>
+                      </tr>
+                      <tr>
+                        <td height="25">{$=itake('config.star','lng')}</td>
+                        <td><img src="{$images}star/{$star}.gif" border="0"></td>
+                      </tr>
+                      <tr>
+                        <td height="25">{$=itake('config.accredit','lng')}</td>
+                        <td>{$accredit}</td>
+                      </tr>
+                      <tr>
+                        <td height="25">{$=itake('config.lng','lng')}</td>
+                        <td>{$lng}</td>
+                      </tr>
+                      <tr>
+                        <td height="25">{$=itake('config.author','lng')}</td>
+                        <td>{$author}</td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td width="50%" align="center"><img src="{$image}" border="0" /></td>
+                </tr>
+              </table>
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td width="100" height="25">{$=itake('config.runco','lng')}</td>
+                  <td>{$runco}</td>
+                </tr>
+                <tr>
+                  <td height="25">{$=itake('config.link','lng')}</td>
+                  <td><a href="{$link}" target="_blank">{$link}</a></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td class="content"><div>{$content}</div></td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td><img src="{$images}download.gif" border="0" />{$recurrence_ida} <a href="{$downhref}" target="_blank">{$downurl}</a>{$recurrence_ida}</td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<script type="text/javascript">igets('{$=get_actual_route('expansion')}/count/?genre={$=urlencode(ngenre)}&id={$id}', nll);</script>
+{$=web_foot(nfoot)}
+]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

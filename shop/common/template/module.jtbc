@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[list]]></name>
+      <tpl_default><![CDATA[{$=web_head(nhead)}
+<div id="middle">
+  <div id="middleContent">
+    <div class="middleSide">
+      <div class="box1">
+        <h3>{$=itake('module.class', 'lng')}</h3>{$=isort("tpl=1;rnum=1")}
+      </div>
+      <div class="box1">
+        <h3>{$=itake('module.good','lng')}</h3>{$=itransfer("good","1","topx=10;tnum=26")}
+      </div>
+    </div>
+    <div class="middleMain">
+      <div class="middleMainContent">
+        <table cellpadding="0" cellspacing="0" class="tablen">
+          <tr>
+            <td class="nav"><span>{$=inavigation("module", "{$class}")}</span></td>
+          </tr>
+          <tr>
+            <td class="list" valign="top">{$recurrence_ida}
+              <div class="probox1">
+                <table width="140" cellspacing="0" cellpadding="0" border="0" align="center">
+                  <tr>
+                    <td><div class="imgbox1"><a href="./?type=detail&amp;id={$id}"><img src="{$image}" alt="{$image}" width="122" height="96" /></a></div></td>
+                  </tr>
+                  <tr>
+                    <td height="40" align="center">{$topic}</td>
+                  </tr>
+                  <tr>
+                    <td class="red" align="center">{$wprice}&nbsp;{$=itake('global.lng_unit.money','lng')}/{$unit}</td>
+                  </tr>
+                  <tr>
+                    <td height="10"></td>
+                 </tr>
+                </table>
+              </div>{$recurrence_ida}
+            </td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td><div id="cutepage" class="cutepage">{$cpagestr}</div></td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+{$=web_foot(nfoot)}
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[detail]]></name>
+      <tpl_default><![CDATA[{$=web_head(nhead)}
+<script type="text/javascript">
+function cklimitnum(strid, strnum, strnmax)
+{
+  var tstrnum = get_num(strnum);
+  var tstrnmax = get_num(strnmax);
+  if (!(tstrnmax == -1))
+  {
+    if (tstrnum > tstrnmax)
+    {
+      if (!(tstrnmax == 0))
+      {
+        alert("{$=itake('module.limitnumerror', 'lng')}");
+      };
+      get_id(strid).value = tstrnmax;
+    };
+  };
+};
+</script>
+<div id="middle">
+  <div id="middleContent">
+    <div class="middleSide">
+      <div class="box1">
+        <h3>{$=itake('module.class', 'lng')}</h3>{$=isort("tpl=1;rnum=1")}
+      </div>
+      <div class="box1">
+        <h3>{$=itake('module.good','lng')}</h3>{$=itransfer("good","1","topx=10;tnum=26")}
+      </div>
+    </div>
+    <div class="middleMain">
+      <div class="middleMainContent">
+        <table cellpadding="0" cellspacing="0" class="tablen">
+          <tr>
+            <td class="nav"><span>{$=inavigation("module", "{$class}")}</span></td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td class="topic"><div>{$topic}</div></td>
+          </tr>
+          <tr>
+            <td valign="top">
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td align="center">
+                    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                      <tr>
+                        <td height="20" width="60">{$=itake('config.id','lng')}</td>
+                        <td>{$snum}</td>
+                      </tr>
+                      <tr>
+                        <td height="20">{$=itake('config.topic','lng')}</td>
+                        <td>{$topic}</td>
+                      </tr>
+                      <tr>
+                        <td height="20">{$=itake('config.price','lng')}</td>
+                        <td>{$price}&nbsp;{$=itake('global.lng_unit.money','lng')}/{$unit}</td>
+                      </tr>
+                      <tr>
+                        <td height="20">{$=itake('config.wprice','lng')}</td>
+                        <td class="red">{$wprice}&nbsp;{$=itake('global.lng_unit.money','lng')}/{$unit}</td>
+                      </tr>
+                      <tr>
+                        <td height="20">{$=itake('config.limitnum','lng')}</td>
+                        <td class="red b">{$limitstr}</td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td width="120" height="120" align="center" background="{$global.images}public/probg.gif"><a href="{$image}" target="_blank"><img src="{$image}" border="0" width="122" height="96" /></a></td>
+                  <td width="20"></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td valign="top">
+              <form name="spform" method="post" action="{$=get_actual_route(nshopcart)}/index.asp?action=add&id={$id}&backurl={$=urlencode(nurl)}">
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td width="120">{$=itake('module.buynum', 'lng')} <input type="text" id="buynum" name="buynum" value="1" size="4" class="text" onkeyup="cklimitnum(this.id, this.value, {$limitnum});" /></td>
+                  <td><a href="javascript:spform.submit()" id="buyhref"><img src="{$images}small/buy.gif" border="0" id="buypic" /></a></td>
+                </tr>
+              </table>
+              </form>
+            </td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td class="content"><div>{$content}</div></td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<script type="text/javascript">
+var limitnum = {$limitnum};
+if (limitnum == 0)
+{
+  get_id("buynum").value = 0;
+  get_id("buypic").src = "{$images}small/buyn.gif";
+  get_id("buyhref").href = "#";
+  setTimeout('alert(\'{$=itake('module.limitnumerror2','lng')}\')', 1000);
+};
+</script>
+<script type="text/javascript">igets('{$=get_actual_route('expansion')}/count/?genre={$=urlencode(ngenre)}&id={$id}', nll);</script>
+{$=web_foot(nfoot)}
+]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

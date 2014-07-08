@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>disinfo,chinese</field>
+    <base>language_list</base>
+  </configure>
+  <language_list>
+    <item>
+      <disinfo><![CDATA[mgtitle]]></disinfo>
+      <chinese><![CDATA[在线支付]]></chinese>
+    </item>
+    <item>
+      <disinfo><![CDATA[nav_list]]></disinfo>
+      <chinese><![CDATA[全部支付列表]]></chinese>
+    </item>
+    <item>
+      <disinfo><![CDATA[nav_add]]></disinfo>
+      <chinese><![CDATA[添加一个新的支付]]></chinese>
+    </item>
+    <item>
+      <disinfo><![CDATA[edit]]></disinfo>
+      <chinese><![CDATA[编辑支付属性]]></chinese>
+    </item>
+    <item>
+      <disinfo><![CDATA[orderid]]></disinfo>
+      <chinese><![CDATA[定单编号]]></chinese>
+    </item>
+    <item>
+      <disinfo><![CDATA[payorderid]]></disinfo>
+      <chinese><![CDATA[支付定单号]]></chinese>
+    </item>
+    <item>
+      <disinfo><![CDATA[genre]]></disinfo>
+      <chinese><![CDATA[所属模块]]></chinese>
+    </item>
+    <item>
+      <disinfo><![CDATA[payid]]></disinfo>
+      <chinese><![CDATA[编号]]></chinese>
+    </item>
+    <item>
+      <disinfo><![CDATA[paymoney]]></disinfo>
+      <chinese><![CDATA[费用]]></chinese>
+    </item>
+  </language_list>
+</xml>

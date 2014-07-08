@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[jslogin]]></name>
+      <tpl_default><![CDATA[<div id="jstdlogin"></div>
+<script type="text/javascript">
+function jslogins(strers)
+{
+  if (!(strers == "$error$"))
+  {
+    get_id("jstdlogin").innerHTML = strers ;
+  }
+  else
+  {
+    get_id("jstdlogin").innerHTML = "{$=itake('global.' & userfolder & ':api.jslogin_error3", "lng")}";
+    setTimeout("jslogin()", 3000);
+  };
+};
+
+function jslogin()
+{
+  get_id("jstdlogin").innerHTML = "{$=itake('global.' & userfolder & ':api.jslogin_load", "lng")}";
+  igets("{$=get_actual_route(userfolder)}/interface.asp?type=login", jslogins);
+};
+
+function jslogin_logins(strers)
+{
+  var tstr = strers;
+  switch(tstr)
+  {
+    case "error1":
+      alert("{$=itake('global.lng_error.valcode', 'lng')}");
+      break;
+    case "error2":
+      alert("{$=itake('global.' & userfolder & ':api.jslogin_error1', 'lng')}");
+      break;
+    case "$error$":
+      alert("{$=itake('global.' & userfolder & ':api.jslogin_error2', 'lng')}");
+      break;
+    default:
+  };
+  jslogin();
+};
+
+function jslogin_login(struname, strupassword, strvalcode)
+{
+  get_id("jstdlogin").innerHTML = "{$=itake('global.' & userfolder & ':api.jslogin_loading", "lng")}";
+  igets("{$=get_actual_route(userfolder)}/interface.asp?type=nlogin&username=" + struname + "&password=" + strupassword + "&valcode=" + strvalcode, jslogin_logins);
+};
+
+jslogin();
+</script>
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[jslogin_login]]></name>
+      <tpl_default><![CDATA[
+<form onsubmit="return false;">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td width="50" height="25">{$=itake('global.lng_config.username','lng')}</td>
+    <td><input type="text" id="jslogin_username" name="jslogin_username" style="width: 120px" class="text" /></td>
+  </tr>
+  <tr>
+    <td height="25">{$=itake('global.lng_config.password','lng')}</td>
+    <td><input type="password" id="jslogin_password" name="jslogin_password" style="width: 120px" class="text" /></td>
+  </tr>{$recurrence_valcode}
+  <tr>
+    <td height="25">{$=itake('global.lng_config.valcode','lng')}</td>
+    <td><input type="text" id="jslogin_valcode" name="jslogin_valcode" size="4" style="width: 52px" class="text" />&nbsp;<img src="{$images}code/code.asp?{$=get_rndcode(12)}" onclick="this.src='{$images}code/code.asp?' + Math.floor(Math.random() * 99999 + 1)" align="absmiddle" style="CURSOR:hand; CURSOR:pointer" /></td>
+  </tr>{$recurrence_valcode}
+  <tr>
+    <td height="35"></td>
+    <td><input type="submit" value="{$=itake('global.' & userfolder & ':api.login','lng')}" class="button" onclick="jslogin_login(escape(get_id('jslogin_username').value), escape(get_id('jslogin_password').value), escape(get_id('jslogin_valcode')? get_id('jslogin_valcode').value: ''));" />&nbsp;&nbsp;<a href="{$=get_lrstr(nuri, "/", "leftr")}">{$=itake('global.' & userfolder & ':api.register','lng')}</a>&nbsp;<a href="{$=get_lrstr(nuri, "/", "leftr")}/?type=lostpassword">{$=itake('global.' & userfolder & ':api.lost_password", "lng")}</a></td>
+  </tr>
+</table>
+</form>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[jslogin_logined]]></name>
+      <tpl_default><![CDATA[<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td height="25">{$=itake('global.lng_config.username','lng')}:&nbsp;{$=nusername}</td>
+  </tr>
+  <tr>
+    <td height="25">{$=itake('global.' & userfolder & ':api.acttime','lng')}:&nbsp;{$=now()}</td>
+  </tr>
+  <tr>
+    <td height="25"><a href="{$=get_lrstr(nuri, "/", "leftr")}/message/?type=list" target="_self">{$message}</a></td>
+  </tr>
+  <tr>
+    <td height="25"><a href="{$=get_lrstr(nuri, "/", "leftr")}/?type=manage" target="_self">{$=itake('global.' & userfolder & ':api.membercenter','lng')}</a> <a href="{$=get_lrstr(nuri, "/", "leftr")}/?action=logout" onclick="return click_return('{$=itake('global.' & userfolder & ':api.logoutstr', 'lng')}')">{$=itake('global.' & userfolder & ':api.logout','lng')}</a></td>
+  </tr>
+</table>]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

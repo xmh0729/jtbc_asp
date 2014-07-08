@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[forum_list]]></name>
+      <tpl_default><![CDATA[<table border="0" width="100%" cellSpacing="0" cellPadding="0">
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center">
+      <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+        <tr>
+          <td width="120" align="center" valign="top">{$=get_admin_sellng}
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0">
+              <tr>
+                <td width="100%" height="5"></td>
+              </tr>
+            </table>
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0" class="lrbtline">
+              <tr>
+                <td width="100%" height="25" class="tbtop">{$=itake('manage_forum.fsort','lng')}</td>
+              </tr>
+              <tr>
+                <td width="100%" align="center">
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    <tr>
+                      <td width="100%" height="20">&nbsp;<img src="{$global.images}public/small/sico.gif" border="0">&nbsp;<a href="?slng={$=slng}" class="green">{$=itake('manage_forum.all','lng')}</a></td>
+                    </tr>
+                    </tr>{$recurrence_ida}
+                    <tr>
+                      <td width="100%" height="20">&nbsp;<img src="{$global.images}public/small/sico.gif" border="0">&nbsp;<a href="{$ahref}" class="{$sclass}">{$topic}</a></td>
+                    </tr>{$recurrence_ida}
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td width="5"></td>
+          <td width="*" align="center" valign="top">
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0" class="lrbtline">
+              <tr>
+                <td width="100%" height="25" class="tbtop">{$=itake('manage_forum.nav','lng')}</td>
+              </tr>
+              <tr>
+                <td width="100%" align="center">
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="20">&nbsp;<img src="{$global.images}public/small/sico.gif" border="0">&nbsp;<a href="?slng={$=slng}">{$=itake('manage_forum.all','lng')}</a>{$nav_forum_sort}</td>
+                    </tr>
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0">
+              <tr>
+                <td width="100%" height="5"></td>
+              </tr>
+            </table>
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0" class="lrbtline">
+              <tr>
+                <td width="100%" height="25" class="tbtop">{$=itake('manage_forum.sort','lng')}</td>
+              </tr>
+              <tr>
+                <td width="100%" align="center">
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                  <form method="post" name="sel_form" action="?action=control_sort&sid={$sid}&backurl={$=urlencode(nurl)}">
+                    <tr>
+                      <td width="30" height="25"><input type="checkbox" name="sel_all" class="checkbox" onClick="select_all()"></td>
+                      <td width="*">{$=itake('manage_forum.name','lng')}</td>
+                      <td align="center" width="50">{$=itake('global.lng_config.edit','lng')}</td>
+                      <td align="center" width="50">{$=itake('global.lng_config.delete','lng')}</td>
+                      <td align="center" width="50">{$=itake('global.lng_config.order','lng')}</td>
+                    </tr>{$recurrence_idb}
+                    <tr>
+                      <td height="25"><input type="checkbox" name="sel_id" value="{$sid}" class="checkbox"></td>
+                      <td><a href="?slng={$=slng}&sid={$sid}">{$sort}</a></td>
+                      <td align="center"><a href="?slng={$=slng}&type=edit_sort&sid={$sid}"><img src="{$global.images}public/small/edit.gif" border="0"></a></td>
+                      <td align="center"><a href="?action=delete_sort&sid={$sid}&backurl={$=urlencode(nurl)}"><img src="{$global.images}public/small/delete.gif" border="0"></a></td>
+                      <td align="center"><a href="?action=order_sort&at=up&sid={$sid}&backurl={$=urlencode(nurl)}"><img src="{$global.images}public/small/up.gif" border="0"></a>&nbsp;<a href="?action=order_sort&at=down&sid={$sid}&backurl={$=urlencode(nurl)}"><img src="{$global.images}public/small/down.gif" border="0"></a></td>
+                    </tr>{$recurrence_idb}
+                  </table>
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="25" align="right">{$cpagestr}</td>
+                    </tr>
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                    <tr>
+                      <td width="100%" height="25" align="right">{$=sel_control}</td>
+                    </tr>
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </form>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0">
+              <tr>
+                <td width="100%" height="5"></td>
+              </tr>
+            </table>{$recurrence_idc}
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0" class="lrbtline">
+              <tr>
+                <td width="100%" height="25" class="tbtop">{$=itake('manage_forum.add','lng')}</td>
+              </tr>
+              <tr>
+                <td width="100%" align="center">
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                  <form method="post" name="sform" action="?action=add_sort&sid={$sid}&backurl={$=urlencode(nurl)}">
+                  <input type="hidden" name="lng" value="{$=slng}">
+                    <tr>
+                      <td width="80" height="25">{$=itake('config.sort','lng')}</td>
+                      <td width="*"><input type="text" name="sort" size="20"></td>
+                    </tr>
+                    <tr>
+                      <td height="25">{$=itake('config.type','lng')}</td>
+                      <td><select name="type" class="select">{$=show_xmlinfo_select("sel_type.all","","select")}</select></td>
+                    </tr>
+                    <tr>
+                      <td height="25">{$=itake('config.mode','lng')}</td>
+                      <td><select name="mode" class="select">{$=show_xmlinfo_select("sel_mode.all","","select")}</select></td>
+                    </tr>
+                    <tr class="green">
+                      <td height="25">{$=itake('config.popedom','lng')}</td>
+                      <td>{$=sel_usergroup("popedom", "checkbox", "")}</td>
+                    </tr>
+                    <tr>
+                      <td height="25">{$=itake('config.images','lng')}</td>
+                      <td><input type="text" name="images" size="40"></td>
+                    </tr>
+                    <tr>
+                      <td height="25">{$=itake('config.admin','lng')}</td>
+                      <td><input type="text" name="admin" size="30"></td>
+                    </tr>
+                    <tr>
+                      <td height="25">{$=itake('config.rule','lng')}</td>
+                      <td><textarea rows="2" name="rule" cols="50" ondblclick='this.rows+=3;' onblur='this.rows=2;'></textarea></td>
+                    </tr>
+                    <tr>
+                      <td height="25">{$=itake('config.explain','lng')}</td>
+                      <td><textarea rows="2" name="explain" cols="50" ondblclick='this.rows+=3;' onblur='this.rows=2;'></textarea></td>
+                    </tr>
+                    <tr>
+                      <td height="25">{$=itake('config.attestation','lng')}</td>
+                      <td><textarea rows="2" name="attestation" cols="50" ondblclick='this.rows+=3;' onblur='this.rows=2;'></textarea></td>
+                    </tr>
+                    <tr>
+                      <td height="25">{$=itake('config.hidden','lng')}</td>
+                      <td><select name="hidden" class="select">{$=show_xmlinfo_select("sel_hidden.all","","select")}</select></td>
+                    </tr>
+                    <tr>
+                      <td height="20"></td>
+                      <td class="red">{$=itake('config.notice','lng')}</td>
+                    </tr>
+                    <tr>
+                      <td height="25"></td>
+                      <td><input type="submit" name="submit" value="{$=itake('manage_forum.add_submit','lng')}" class="button"></td>
+                    </tr>
+                  </form>
+                  </table>
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>{$$}
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0" class="lrbtline">
+              <tr>
+                <td width="100%" height="25" class="tbtop">{$=itake('manage_forum.add_sort','lng')}</td>
+              </tr>
+              <tr>
+                <td width="100%" align="center">
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                  <form method="post" name="sform" action="?action=add_sort&sid={$sid}&backurl={$=urlencode(nurl)}">
+                  <input type="hidden" name="lng" value="{$=slng}">
+                    <tr>
+                      <td width="80" height="25">{$=itake('manage_forum.sort_name','lng')}</td>
+                      <td width="*"><input type="text" name="sort" size="20"> <input type="submit" name="submit" value="{$=itake('manage_forum.add_sort_submit','lng')}" class="button"></td>
+                    </tr>
+                  </form>
+                  </table>
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>{$recurrence_idc}
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0">
+              <tr>
+                <td width="100%" height="5"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+</table>
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[forum_edit]]></name>
+      <tpl_default><![CDATA[<table border="0" width="100%" cellSpacing="0" cellPadding="0">
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center">
+    <table border="0" width="98%" cellSpacing="0" cellPadding="0" class="lrbtline">
+      <tr>
+        <td width="100%" height="25" class="tbtop">{$=itake('manage_forum.nav','lng')}</td>
+      </tr>
+      <tr>
+        <td width="100%" align="center">
+          <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+            <tr>
+              <td width="100%" height="5"></td>
+            </tr>
+            <tr>
+              <td width="100%" height="20">&nbsp;<img src="{$global.images}public/small/sico.gif" border="0">&nbsp;<a href="?slng={$=slng}">{$=itake('manage_forum.all','lng')}</a>{$nav_forum_sort}</td>
+            </tr>
+            <tr>
+              <td width="100%" height="5"></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+      <tr>
+        <td width="100%" height="5"></td>
+      </tr>
+    </table>{$recurrence_idc}
+    <table border="0" width="98%" cellSpacing="0" cellPadding="0" class="lrbtline">
+      <tr>
+        <td width="100%" height="25" class="tbtop">{$=itake('manage_forum.edit','lng')}</td>
+      </tr>
+      <tr>
+        <td width="100%" align="center">
+          <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+            <tr>
+              <td width="100%" height="5"></td>
+            </tr>
+          </table>
+          <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+          <form name="eform" method="post" action="?action=edit_sort&sid={$sid}&backurl={$=urlencode(nurl)}">
+            <tr>
+              <td width="80" height="25">{$=itake('config.sort','lng')}</td>
+              <td width="*"><input type="text" name="sort" size="20" value="{$sort}"></td>
+            </tr>
+            <tr>
+              <td height="25">{$=itake('config.type','lng')}</td>
+              <td><select name="type" class="select">{$=show_xmlinfo_select("sel_type.all","{$type}","select")}</select></td>
+            </tr>
+            <tr>
+              <td height="25">{$=itake('config.mode','lng')}</td>
+              <td><select name="mode" class="select">{$=show_xmlinfo_select("sel_mode.all","{$mode}","select")}</select></td>
+            </tr>
+            <tr class="green">
+              <td height="25">{$=itake('config.popedom','lng')}</td>
+              <td>{$=sel_usergroup("popedom", "checkbox", "{$popedom}")}</td>
+            </tr>
+            <tr>
+              <td height="25">{$=itake('config.images','lng')}</td>
+              <td><input type="text" name="images" size="40" value="{$images}"></td>
+            </tr>
+            <tr>
+              <td height="25">{$=itake('config.admin','lng')}</td>
+              <td><input type="text" name="admin" size="30" value="{$admin}"></td>
+            </tr>
+            <tr>
+              <td height="25">{$=itake('config.rule','lng')}</td>
+              <td><textarea rows="2" name="rule" cols="50" ondblclick='this.rows+=3;' onblur='this.rows=2;'>{$rule}</textarea></td>
+            </tr>
+            <tr>
+              <td height="25">{$=itake('config.explain','lng')}</td>
+              <td><textarea rows="2" name="explain" cols="50" ondblclick='this.rows+=3;' onblur='this.rows=2;'>{$explain}</textarea></td>
+            </tr>
+            <tr>
+              <td height="25">{$=itake('config.attestation','lng')}</td>
+              <td><textarea rows="2" name="attestation" cols="50" ondblclick='this.rows+=3;' onblur='this.rows=2;'>{$attestation}</textarea></td>
+            </tr>
+            <tr>
+              <td height="25">{$=itake('config.hidden','lng')}</td>
+              <td><select name="hidden" class="select">{$=show_xmlinfo_select("sel_hidden.all","{$hidden}","select")}</select></td>
+            </tr>
+            <tr>
+              <td height="20"></td>
+              <td class="red">{$=itake('config.notice','lng')}</td>
+            </tr>
+            <tr>
+              <td height="25"></td>
+              <td><input type="submit" name="submit" value="{$=itake('manage_forum.edit_submit','lng')}" class="button"></td>
+            </tr>
+          </form>
+          </table>
+        </td>
+      </tr>
+    </table>{$$}
+    <table border="0" width="98%" cellSpacing="0" cellPadding="0" class="lrbtline">
+      <tr>
+        <td width="100%" height="25" class="tbtop">{$=itake('manage_forum.edit','lng')}</td>
+      </tr>
+      <tr>
+        <td width="100%" align="center">
+          <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+            <tr>
+              <td width="100%" height="5"></td>
+            </tr>
+          </table>
+          <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+          <form name="eform" method="post" action="?action=edit_sort&sid={$sid}&backurl={$=urlencode(nurl)}">
+            <tr>
+              <td width="80" height="25">{$=itake('manage_forum.sort_name','lng')}</td>
+              <td width="*"><input type="text" name="sort" size="20" value="{$sort}"> <input type="submit" name="submit" value="{$=itake('manage_forum.edit_sort_submit','lng')}" class="button"></td>
+            </tr>
+          </form>
+          </table>
+        </td>
+      </tr>
+    </table>{$recurrence_idc}
+    <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+      <tr>
+        <td width="100%" height="5"></td>
+      </tr>
+     </table>
+   </td>
+  </tr>
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+</table>
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[dispose_navigation]]></name>
+      <tpl_default><![CDATA[                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                    <tr>
+                      <td width="100%" height="20">&nbsp;<img src="{$global.images}public/small/sico.gif" border="0">&nbsp;<span id="transfer_dispose"><a href="?type=transfer_dispose&hspan=transfer_dispose" target="_self">{$=itake('manage_dispose.transfer', 'lng')}</a></span></td>
+                    </tr>
+                    <tr>
+                      <td width="100%" height="20">&nbsp;<img src="{$global.images}public/small/sico.gif" border="0">&nbsp;<span id="delete_dispose"><a href="?type=delete_dispose&hspan=delete_dispose" target="_self">{$=itake('manage_dispose.delete', 'lng')}</a></span></td>
+                    </tr>
+                    <tr>
+                      <td width="100%" height="20">&nbsp;<img src="{$global.images}public/small/sico.gif" border="0">&nbsp;<span id="update_dispose"><a href="?type=update_dispose&hspan=update_dispose" target="_self">{$=itake('manage_dispose.update', 'lng')}</a></span></td>
+                    </tr>
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[dispose_transfer]]></name>
+      <tpl_default><![CDATA[<script language="javascript" src="{$global.images}js/calendar.js"></script>
+<table border="0" width="100%" cellSpacing="0" cellPadding="0">
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center">
+      <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+        <tr>
+          <td width="120" align="center" valign="top">{$=get_admin_sellng}
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0">
+              <tr>
+                <td width="100%" height="5"></td>
+              </tr>
+            </table>
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0" class="lrbtline">
+              <tr>
+                <td width="100%" height="25" class="tbtop">{$=itake('global.lng_config.control','lng')}</td>
+              </tr>
+              <tr>
+                <td width="100%" align="center">{$=manage_navigation("dispose")}</td>
+              </tr>
+            </table>
+          </td>
+          <td width="5"></td>
+          <td width="*" align="center" valign="top">
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0" class="lrbtline">
+              <tr>
+                <td width="100%" height="25" class="tbtop">{$=itake('manage_dispose.list','lng')}</td>
+              </tr>
+              <tr>
+                <td width="100%" align="center">
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                  <form name="form" method="post" action="?action=transfer_dispose&backurl={$=urlencode(nurl)}">
+                    <tr>
+                      <td width="80" height="25">{$=itake('global.lng_config.sort','lng')}</td>
+                      <td width="*"><select name="sort1" class="select">{$=sel_forum_sort("0","0",slng)}</select></td>
+                    </tr>
+                    <tr>
+                      <td height="5"></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td height="25">{$=itake('global.lng_config.sort','lng')}</td>
+                      <td><select name="sort2" class="select">{$=sel_forum_sort("0","0",slng)}</select></td>
+                    </tr>
+                    <tr>
+                      <td height="5"></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td height="25">{$=itake('manage_dispose.transfer_condition','lng')}</td>
+                      <td>{$=show_xmlinfo_select("sel_dispose_topic.all", "", "condition:checkbox")}</td>
+                    </tr>
+                    <tr>
+                      <td height="5"></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td height="25">{$=itake('manage_dispose.start_time','lng')}</td>
+                      <td><input type="text" id="start_time" name="start_time" size="10"> <input type="button" value="{$=itake('global.lng_config.select', 'lng')}" onclick="Calendar.display('start_time', event)"></td>
+                    </tr>
+                    <tr>
+                      <td height="5"></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td height="25">{$=itake('manage_dispose.end_time','lng')}</td>
+                      <td><input type="text" id="end_time" name="end_time" size="10" value="{$=format_date(Now(), 1)}"> <input type="button" value="{$=itake('global.lng_config.select', 'lng')}" onclick="Calendar.display('end_time', event)"></td>
+                    </tr>
+                    <tr>
+                      <td height="5"></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td height="25">{$=itake('manage_dispose.author','lng')}</td>
+                      <td><input type="text" name="author" size="20"> {$=itake('manage_dispose.author_null2all','lng')}</td>
+                    </tr>
+                    <tr>
+                      <td height="5"></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td height="25"></td>
+                      <td><input type="submit" name="submit" value="{$=itake('global.lng_config.submit','lng')}" class="button">&nbsp;<input type="reset" name="reset" value="{$=itake('global.lng_config.reset','lng')}" class="button"></td>
+                    </tr>
+                    <tr>
+                      <td height="5"></td>
+                      <td></td>
+                    </tr>
+                  </form>
+                  </table>
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+</table>
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[dispose_delete]]></name>
+      <tpl_default><![CDATA[<script language="javascript" src="{$global.images}js/calendar.js"></script>
+<table border="0" width="100%" cellSpacing="0" cellPadding="0">
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center">
+      <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+        <tr>
+          <td width="120" align="center" valign="top">{$=get_admin_sellng}
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0">
+              <tr>
+                <td width="100%" height="5"></td>
+              </tr>
+            </table>
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0" class="lrbtline">
+              <tr>
+                <td width="100%" height="25" class="tbtop">{$=itake('global.lng_config.control','lng')}</td>
+              </tr>
+              <tr>
+                <td width="100%" align="center">{$=manage_navigation("dispose")}</td>
+              </tr>
+            </table>
+          </td>
+          <td width="5"></td>
+          <td width="*" align="center" valign="top">
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0" class="lrbtline">
+              <tr>
+                <td width="100%" height="25" class="tbtop">{$=itake('manage_dispose.list','lng')}</td>
+              </tr>
+              <tr>
+                <td width="100%" align="center">
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                  <form name="form" method="post" action="?action=delete_dispose&backurl={$=urlencode(nurl)}">
+                    <tr>
+                      <td width="80" height="25">{$=itake('global.lng_config.sort','lng')}</td>
+                      <td width="*"><select name="sort" class="select"><option value="-1">{$=itake('manage_dispose.all', 'lng')}</option>{$=sel_forum_sort("0","0",slng)}</select></td>
+                    </tr>
+                    <tr>
+                      <td height="5"></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td height="25">{$=itake('manage_dispose.delete_condition','lng')}</td>
+                      <td>{$=show_xmlinfo_select("sel_dispose_topic.all", "", "condition:checkbox")}</td>
+                    </tr>
+                    <tr>
+                      <td height="5"></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td height="25">{$=itake('manage_dispose.start_time','lng')}</td>
+                      <td><input type="text" id="start_time" name="start_time" size="10"> <input type="button" value="{$=itake('global.lng_config.select', 'lng')}" onclick="Calendar.display('start_time', event)"></td>
+                    </tr>
+                    <tr>
+                      <td height="5"></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td height="25">{$=itake('manage_dispose.end_time','lng')}</td>
+                      <td><input type="text" id="end_time" name="end_time" size="10" value="{$=format_date(Now(), 1)}"> <input type="button" value="{$=itake('global.lng_config.select', 'lng')}" onclick="Calendar.display('end_time', event)"></td>
+                    </tr>
+                    <tr>
+                      <td height="5"></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td height="25">{$=itake('manage_dispose.author','lng')}</td>
+                      <td><input type="text" name="author" size="20"> {$=itake('manage_dispose.author_null2all','lng')}</td>
+                    </tr>
+                    <tr>
+                      <td height="5"></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td height="25"></td>
+                      <td><input type="submit" name="submit" value="{$=itake('global.lng_config.submit','lng')}" class="button">&nbsp;<input type="reset" name="reset" value="{$=itake('global.lng_config.reset','lng')}" class="button"></td>
+                    </tr>
+                    <tr>
+                      <td height="5"></td>
+                      <td></td>
+                    </tr>
+                  </form>
+                  </table>
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+</table>
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[dispose_update]]></name>
+      <tpl_default><![CDATA[<table border="0" width="100%" cellSpacing="0" cellPadding="0">
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center">
+      <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+        <tr>
+          <td width="120" align="center" valign="top">{$=get_admin_sellng}
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0">
+              <tr>
+                <td width="100%" height="5"></td>
+              </tr>
+            </table>
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0" class="lrbtline">
+              <tr>
+                <td width="100%" height="25" class="tbtop">{$=itake('global.lng_config.control','lng')}</td>
+              </tr>
+              <tr>
+                <td width="100%" align="center">{$=manage_navigation("dispose")}</td>
+              </tr>
+            </table>
+          </td>
+          <td width="5"></td>
+          <td width="*" align="center" valign="top">
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0" class="lrbtline">
+              <tr>
+                <td width="100%" height="25" class="tbtop">{$=itake('manage_dispose.list','lng')}</td>
+              </tr>
+              <tr>
+                <td width="100%" align="center">
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td height="25" class="red">{$=itake('manage_dispose.update_notice','lng')}</td>
+                    </tr>
+                  </table>
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                  <form name="form" method="post" action="?action=update_dispose&backurl={$=urlencode(nurl)}">
+                    <tr>
+                      <td width="80" height="25">{$=itake('global.lng_config.sort','lng')}</td>
+                      <td width="*"><select name="sort" class="select"><option value="-1">{$=itake('manage_dispose.all', 'lng')}</option>{$=sel_forum_sort("0","0",slng)}</select></td>
+                    </tr>
+                    <tr>
+                      <td height="5"></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td height="25">{$=itake('manage_dispose.update_condition','lng')}</td>
+                      <td>{$=show_xmlinfo_select("sel_dispose_update.all", "", "condition:checkbox")}</td>
+                    </tr>
+                    <tr>
+                      <td height="5"></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td height="25"></td>
+                      <td><input type="submit" name="submit" value="{$=itake('global.lng_config.submit','lng')}" class="button">&nbsp;<input type="reset" name="reset" value="{$=itake('global.lng_config.reset','lng')}" class="button"></td>
+                    </tr>
+                    <tr>
+                      <td height="5"></td>
+                      <td></td>
+                    </tr>
+                  </form>
+                  </table>
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+</table>
+]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

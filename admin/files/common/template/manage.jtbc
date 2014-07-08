@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[navigation]]></name>
+      <tpl_default><![CDATA[
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="20">&nbsp;<img src="{$global.images}public/small/sico.gif" border="0">&nbsp;<span id="fileslist"><a href="?hspan=fileslist">{$=itake('manage.fileslist','lng')}</a></span>&nbsp;<img src="{$global.images}public/small/sico.gif" border="0">&nbsp;<span id="filesadd"><a href="?type=add_file&show_path={$=urlencode(nshow_path)}&hspan=filesadd">{$=itake('manage.filesadd','lng')}</a></span>&nbsp;<img src="{$global.images}public/small/sico.gif" border="0">&nbsp;<span id="folderadd"><a href="?type=add_folder&show_path={$=urlencode(nshow_path)}&hspan=folderadd">{$=itake('manage.folderadd','lng')}</a></span></td>
+                    </tr>
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[list]]></name>
+      <tpl_default><![CDATA[
+<table border="0" width="100%" cellSpacing="0" cellPadding="0">
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center">
+      <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+        <tr>
+          <td width="*" align="center" valign="top">
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0" class="lrbtline">
+              <tr>
+                <td width="100%" height="25" class="tbtop">{$=itake('global.lng_admin.admin_nav','lng')}</td>
+              </tr>
+              <tr>
+                <td width="100%" align="center">
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>{$=manage_navigation}
+                </td>
+              </tr>
+            </table>
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0">
+              <tr>
+                <td width="100%" height="5"></td>
+              </tr>
+            </table>
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0" class="lrbtline">
+              <tr>
+                <td width="100%" height="25" class="tbtop">{$=itake('manage.manage','lng')}</td>
+              </tr>
+              <tr>
+                <td width="100%" align="center">
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td height="25">{$=itake('manage.path', 'lng')}{$path}</td>
+                    </tr>
+                    <tr>
+                      <td height="25">{$=itake('manage.foldersize', 'lng')}{$foldersize}, {$=itake('manage.lasttime', 'lng')}{$lasttime}, {$=itake('manage.foldercount', 'lng')}{$foldercount} {$=itake('global.lng_unit.ge','lng')}, {$=itake('manage.filescount', 'lng')}{$filescount} {$=itake('global.lng_unit.ge','lng')}</td>
+                    </tr>
+                    <tr>
+                      <td height="25" class="red"><a href="javascript:history.go(-1)"><b>←</b></a>&nbsp;<a href="javascript:history.go(1)"><b>→</b></a></td>
+                    </tr>
+                  </table>{$recurrence_ida}
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0" class="green">
+                    <tr>
+                      <td width="*" height="25"><a href="javascript:switch_display('{$nfoldername}')"><img src="{$global.images}file/folder.gif" border="0"></a> <a href="?type=show_files&show_path={$nfolderpath}">{$nfoldername}</a></td>
+                      <td width="120">{$nlasttime}</td>
+                      <td width="100">{$nfoldersize}</td>
+                      <td align="center" width="50"><a href="?type=edit_folder&folder_path={$nfolderpath}"><img src="{$global.images}public/small/edit.gif" border="0"></a> <a href="{$nfolderpaths}" target="_blank"><img src="{$global.images}public/small/url.gif" border="0"></a></td>
+                      <td align="center" width="50"><a href="?action=delete_folder&folder_path={$nfolderpath}&backurl={$=urlencode(nurl)}" onclick="return click_return('{$delete_notice}')"><img src="{$global.images}public/small/delete.gif" border="0"></a></td>
+                    </tr>
+                  </table>
+                  <table id="{$nfoldername}" style="display:none;" border="0" width="98%" cellSpacing="0" cellPadding="0" class="green">
+                    <tr>
+                      <td width="140" height="25" class="red">{$engross} {$width}%</td>
+                      <td width="*" align="left"><hr size="5" color="#FF0000" width="{$width}%" align="left"></td>
+                    </tr>
+                  </table>{$recurrence_ida}{$recurrence_idb}
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0" class="red">
+                    <tr>
+                      <td width="*" height="25"><a href="javascript:switch_display('{$nfilename}')"><img src="{$global.images}file/{$nftype}.gif" border="0"></a> <a href="?type=edit_file&file_path={$nfilepath}">{$nfilename}</a></td>
+                      <td width="120">{$nlasttime}</td>
+                      <td width="100">{$nfilesize}</td>
+                      <td align="center" width="50"><a href="?type=edit_file&file_path={$nfilepath}"><img src="{$global.images}public/small/edit.gif" border="0"></a> <a href="{$nfilepaths}" target="_blank"><img src="{$global.images}public/small/url.gif" border="0"></a></td>
+                      <td align="center" width="50"><a href="?action=delete_file&file_path={$nfilepath}&backurl={$=urlencode(nurl)}" onclick="return click_return('{$delete_notice}')"><img src="{$global.images}public/small/delete.gif" border="0"></a></td>
+                    </tr>
+                  </table>
+                  <table id="{$nfilename}" style="display:none;" border="0" width="98%" cellSpacing="0" cellPadding="0" class="green">
+                    <tr>
+                      <td width="140" height="25" class="green">{$engross} {$width}%</td>
+                      <td width="*" align="left"><hr size="5" color="#FF0000" width="{$width}%" align="left"></td>
+                    </tr>
+                  </table>{$recurrence_idb}
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0">
+              <tr>
+                <td width="100%" height="5"></td>
+              </tr>
+            </table>
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0" class="lrbtline">
+              <tr>
+                <td width="100%" height="25" class="tbtop">{$=itake('manage.upload','lng')}</td>
+              </tr>
+              <tr>
+                <td width="100%" align="center">
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                  <form method="post" action="?action=upload&path={$=urlencode(nshow_path)}" enctype="multipart/form-data">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                    <tr>
+                      <td width="100%"><input type="file" name="file1"> <input type="submit" class="button" name="up_button" value="{$=itake('global.lng_config.upload','lng')}"></td>
+                    </tr>
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </form>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+</table>
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[add_file]]></name>
+      <tpl_default><![CDATA[
+<table border="0" width="100%" cellSpacing="0" cellPadding="0">
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center">
+      <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+        <tr>
+          <td width="*" align="center" valign="top">
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0" class="lrbtline">
+              <tr>
+                <td width="100%" height="25" class="tbtop">{$=itake('global.lng_admin.admin_nav','lng')}</td>
+              </tr>
+              <tr>
+                <td width="100%" align="center">
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>{$=manage_navigation}
+                </td>
+              </tr>
+            </table>
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0">
+              <tr>
+                <td width="100%" height="5"></td>
+              </tr>
+            </table>
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0" class="lrbtline">
+              <tr>
+                <td width="100%" height="25" class="tbtop">{$=itake('manage.filesadd','lng')}</td>
+              </tr>
+              <tr>
+                <td width="100%" align="center">
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="25" class="red">{$=ireplace('manage.notice','lng')}</td>
+                    </tr>
+                    <form method="post" action="?action=add_file&backurl={$=urlencode(nurl)}">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                    <tr>
+                      <td width="100%">{$=itake('manage.filename','lng')}</td>
+                    </tr>
+                    <tr>
+                      <td width="100%"><input type="text" name="file_path" size="55" value="{$=repath(nshow_path & "/" & format_date("", 1) & ".txt")}"></td>
+                    </tr>
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                    <tr>
+                      <td width="100%"><textarea rows="25" name="filetext" cols="55"></textarea></td>
+                    </tr>
+                    <tr>
+                      <td width="100%" height="25"><input type="submit" name="submit" value="{$=itake('global.lng_config.submit','lng')}" class="button">&nbsp;<input type="reset" name="reset" value="{$=itake('global.lng_config.reset','lng')}" class="button"></td>
+                    </tr>
+                    </form>
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+</table>
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[edit_file]]></name>
+      <tpl_default><![CDATA[
+<table border="0" width="100%" cellSpacing="0" cellPadding="0">
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center">
+      <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+        <tr>
+          <td width="*" align="center" valign="top">
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0" class="lrbtline">
+              <tr>
+                <td width="100%" height="25" class="tbtop">{$=itake('global.lng_admin.admin_nav','lng')}</td>
+              </tr>
+              <tr>
+                <td width="100%" align="center">
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>{$=manage_navigation}
+                </td>
+              </tr>
+            </table>
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0">
+              <tr>
+                <td width="100%" height="5"></td>
+              </tr>
+            </table>
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0" class="lrbtline">
+              <tr>
+                <td width="100%" height="25" class="tbtop">{$=itake('manage.title','lng')}</td>
+              </tr>
+              <tr>
+                <td width="100%" align="center">
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="25" class="red">{$=ireplace('manage.notice','lng')}</td>
+                    </tr>
+                    <form method="post" action="?action=edit_file&backurl={$=urlencode(nurl)}">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                    <tr>
+                      <td width="100%">{$=itake('manage.filename','lng')}</td>
+                    </tr>
+                    <tr>
+                      <td width="100%"><input type="text" name="file_path" size="55" value="{$=htmlencode(request.querystring('file_path'))}"></td>
+                    </tr>
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                    <tr>
+                      <td width="100%"><textarea rows="25" name="filetext" cols="55">{$=htmlencode(get_file_text(request.querystring('file_path')))}</textarea></td>
+                    </tr>
+                    <tr>
+                      <td width="100%" height="25"><input type="submit" name="submit" value="{$=itake('global.lng_config.submit','lng')}" class="button">&nbsp;<input type="reset" name="reset" value="{$=itake('global.lng_config.reset','lng')}" class="button"></td>
+                    </tr>
+                    </form>
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+</table>
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[add_folder]]></name>
+      <tpl_default><![CDATA[
+<table border="0" width="100%" cellSpacing="0" cellPadding="0">
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center">
+      <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+        <tr>
+          <td width="*" align="center" valign="top">
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0" class="lrbtline">
+              <tr>
+                <td width="100%" height="25" class="tbtop">{$=itake('global.lng_admin.admin_nav','lng')}</td>
+              </tr>
+              <tr>
+                <td width="100%" align="center">
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>{$=manage_navigation}
+                </td>
+              </tr>
+            </table>
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0">
+              <tr>
+                <td width="100%" height="5"></td>
+              </tr>
+            </table>
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0" class="lrbtline">
+              <tr>
+                <td width="100%" height="25" class="tbtop">{$=itake('manage.folderadd','lng')}</td>
+              </tr>
+              <tr>
+                <td width="100%" align="center">
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <form method="post" action="?action=add_folder&backurl={$=urlencode(nurl)}">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                    <tr>
+                      <td width="100%"><input type="text" name="folder_path" size="55" value="{$=repath(nshow_path & "/" & format_date("", 1))}"></td>
+                    </tr>
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                    <tr>
+                      <td width="100%" height="25"><input type="submit" name="submit" value="{$=itake('global.lng_config.submit','lng')}" class="button">&nbsp;<input type="reset" name="reset" value="{$=itake('global.lng_config.reset','lng')}" class="button"></td>
+                    </tr>
+                    </form>
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+</table>
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[edit_folder]]></name>
+      <tpl_default><![CDATA[
+<table border="0" width="100%" cellSpacing="0" cellPadding="0">
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center">
+      <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+        <tr>
+          <td width="*" align="center" valign="top">
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0" class="lrbtline">
+              <tr>
+                <td width="100%" height="25" class="tbtop">{$=itake('global.lng_admin.admin_nav','lng')}</td>
+              </tr>
+              <tr>
+                <td width="100%" align="center">
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>{$=manage_navigation}
+                </td>
+              </tr>
+            </table>
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0">
+              <tr>
+                <td width="100%" height="5"></td>
+              </tr>
+            </table>
+            <table border="0" width="100%" cellSpacing="0" cellPadding="0" class="lrbtline">
+              <tr>
+                <td width="100%" height="25" class="tbtop">{$=itake('manage.titleb','lng')}</td>
+              </tr>
+              <tr>
+                <td width="100%" align="center">
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                  <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+                    <form method="post" action="?action=edit_folder&backurl={$=urlencode(nurl)}">
+                    <tr>
+                      <td width="100%" height="5"><input type="hidden" name="folder_patha" value="{$=htmlencode(request.querystring('folder_path'))}"></td>
+                    </tr>
+                    <tr>
+                      <td width="100%"><input type="text" name="folder_pathb" size="55" value="{$=htmlencode(request.querystring('folder_path'))}"></td>
+                    </tr>
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                    <tr>
+                      <td width="100%" height="25"><input type="submit" name="submit" value="{$=itake('global.lng_config.submit','lng')}" class="button">&nbsp;<input type="reset" name="reset" value="{$=itake('global.lng_config.reset','lng')}" class="button"></td>
+                    </tr>
+                    </form>
+                    <tr>
+                      <td width="100%" height="5"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+</table>
+]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[add]]></name>
+      <tpl_default><![CDATA[{$=web_head(nhead)}
+{$=echo_error()}
+<script type="text/javascript" src="{$global.images}js/validator.js"></script>
+<div id="middle">
+  <div id="middleContent">
+    <div class="middleSide">
+      <div class="box1">
+        <h3>{$=itake('module.channel_title','lng')}</h3>
+        <ul>
+          <li><a href="./?type=add&nckcode={$=nckcode}">{$=itake('config.sign','lng')}</a></li>
+          <li><a href="./?type=list">{$=itake('config.view','lng')}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="middleMain">
+      <div class="middleMainContent">
+        <table cellpadding="0" cellspacing="0" class="tablen">
+          <tr>
+            <td class="nav"><span>{$=itake('config.sign','lng')}</span></td>
+          </tr>
+          <tr>
+            <td class="list" valign="top">
+              <form method="post" action="{$=nuri}?action=add&nckcode={$=nckcode}" onSubmit="return Validator.Validate(this, 2)">
+              <input type="hidden" name="nckcode" value="{$=nckcode}" />
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td width="80" height="25"><font class="red">*</font> {$=itake('config.author', 'lng')}</td>
+                  <td><input type="text" size="20" name="author" maxlength="16" dtype="Limit" min="1" max="16" dmsg="{$=itake('validator.author', 'lng')}" value="{$=htmlencode(request.form('author'))}" class="text" /></td>
+                </tr>
+                <tr>
+                  <td height="25">{$=itake('config.sex', 'lng')}</td>
+                  <td><select name="sex" class="select">{$=show_xmlinfo_select("global.sel_sex.all", get_num(request.form('sex'), 0), "select")}</select></td>
+                </tr>
+                <tr>
+                  <td height="25">QQ</td>
+                  <td><input type="text" size="20" name="qq" maxlength="20" value="{$=htmlencode(request.form('qq'))}" class="text" /></td>
+                </tr>
+                <tr>
+                  <td height="25">{$=itake('config.face', 'lng')}</td>
+                  <td><select name="face" class="select" onchange="get_id('faceImg').src='{$global.images}face/' + this.options[this.selectedIndex].value + '.gif';">{$=show_num_select(0, 1, get_num(request.form('face'), 0))}</select> <img id="faceImg" src="{$global.images}face/{$=get_num(request.form('face'), 0)}.gif" border="0" class="absmiddle" /></td>
+                </tr>
+                <tr>
+                  <td height="25">{$=itake('config.email', 'lng')}</td>
+                  <td><input type="text" size="20" name="email" maxlength="40" require="false" dtype="Email" dmsg="{$=itake('validator.email', 'lng')}" value="{$=htmlencode(request.form('email'))}" class="text" /></td>
+                </tr>
+                <tr>
+                  <td height="25">{$=itake('config.homepage', 'lng')}</td>
+                  <td><input type="text" size="20" name="homepage" maxlength="40" require="false" dtype="Url" dmsg="{$=itake('validator.homepage', 'lng')}" value="{$=htmlencode(request.form('homepage'))}" class="text" /></td>
+                </tr>
+                <tr>
+                  <td height="25"><font class="red">*</font> {$=itake('config.topic', 'lng')}</td>
+                  <td><input type="text" size="40" name="topic" maxlength="50" dtype="Require" dmsg="{$=itake('validator.topic', 'lng')}" value="{$=htmlencode(request.form('topic'))}" class="text" /></td>
+                </tr>
+                <tr>
+                  <td height="35">{$=itake('global.lng_config.ubb', 'lng')}</td>
+                  <td>{$=ubb_bar('content')}</td>
+                </tr>
+                <tr>
+                  <td><font class="red">*</font> {$=itake('config.content', 'lng')}</td>
+                  <td valign="top"><textarea rows="8" name="content" id="content" cols="75" ondblclick="this.rows+=3;" onblur="this.rows=8;" dtype="Limit" min="1" max="1000" dmsg="{$=itake('validator.content', 'lng')}" class="textarea">{$=htmlencode(request.form('content'))}</textarea></td>
+                </tr>
+                <tr>
+                  <td height="35">{$=itake('global.lng_config.em', 'lng')}</td>
+                  <td>{$=em_bar('content')}</td>
+                </tr>
+                <tr>
+                  <td height="25">{$=itake('config.hidden', 'lng')}</td>
+                  <td>{$=sel_yesno('hidden', get_num(request.form('hidden'), 0))}</td>
+                </tr>{$recurrence_valcode}
+                <tr>
+                  <td height="25">{$=itake('global.lng_config.valcode', 'lng')}</td>
+                  <td><input type="text" name="valcode" size="4" dtype="Require" dmsg="{$=itake('validator.valcode', 'lng')}" value="{$=htmlencode(request.form('valcode'))}" class="text" /> {$=valcode}</td>
+                </tr>{$recurrence_valcode}
+                <tr>
+                  <td height="35"></td>
+                  <td><input type="submit" name="submit" value="{$=itake('global.lng_config.submit','lng')}" class="button" />&nbsp;<input type="reset" name="reset" value="{$=itake('global.lng_config.reset','lng')}" class="button" /></td>
+                </tr>
+              </table>
+              </form>
+            </td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+{$=web_foot(nfoot)}
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[list]]></name>
+      <tpl_default><![CDATA[{$=web_head(nhead)}
+<div id="middle">
+  <div id="middleContent">
+    <div class="middleSide">
+      <div class="box1">
+        <h3>{$=itake('module.channel_title','lng')}</h3>
+        <ul>
+          <li><a href="./?type=add&nckcode={$=nckcode}">{$=itake('config.sign','lng')}</a></li>
+          <li><a href="./?type=list">{$=itake('config.view','lng')}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="middleMain">
+      <div class="middleMainContent">
+        <table cellpadding="0" cellspacing="0" class="tablen">
+          <tr>
+            <td class="nav"><span>{$=itake('config.view','lng')}</span></td>
+          </tr>
+          <tr>
+            <td class="list" valign="top">{$recurrence_ida}
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td width="100" valign="top"><img src="{$global.images}face/{$face}.gif" border="0" class="absmiddle" /> <u>{$author}</u></td>
+                  <td valign="top">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td height="25"><b>{$topic}</b></td>
+                      </tr>
+                      <tr>
+                        <td><div class="contents">{$content}</div></td>
+                      </tr>
+                      <tr>
+                        <td height="5"></td>
+                      </tr>{$admin_reply}
+                      <tr>
+                        <td valign="top">
+                          <table cellpadding="0" cellspacing="0" border="0" class="quote">
+                            <tr>
+                              <td height="25" class="red">{$str_reply} - {$replytime}</td>
+                            </tr>
+                            <tr>
+                              <td>{$reply}</td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td height="5"></td>
+                      </tr>{$admin_reply}
+                    </table>
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td height="25"><img src="{$global.images}public/small/time.gif" border="0" class="absmiddle" /> {$time}</td>
+                        <td align="right"><img src="{$global.images}public/small/qq.gif" border="0" alt="{$qq}" class="absmiddle" /> <a href="{$homepage}" target="_blank"><img src="{$global.images}public/small/url.gif" border="0" class="absmiddle" /></a> <a href="mailto:{$email}"><img src="{$global.images}public/small/email.gif" border="0" class="absmiddle" /></a> <img src="{$global.images}public/small/ip.gif" border="0" alt="{$authorip}" class="absmiddle" /></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" height="10"></td>
+                </tr>
+              </table>{$recurrence_ida}
+            </td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td><div id="cutepage" class="cutepage">{$cpagestr}</div></td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+{$=web_foot(nfoot)}
+]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

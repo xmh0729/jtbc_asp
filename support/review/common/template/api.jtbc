@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[input_form]]></name>
+      <tpl_default><![CDATA[<table cellpadding="0" cellspacing="0" class="tablen">
+  <tr>
+    <td height="25"><strong>{$=itake('global.' & rvwngenre & '.' & rvwnsort & ':api.formtit', 'lng')}</strong></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" cellpadding="5" cellspacing="0">
+        <tr>
+          <td height="25"><img src="{$global.images}public/small/sico.gif" border="0"> <a href="{$=get_actual_route(rvwngenre)}/{$=rvwnsort}/?type=list&keyword={$keyword}&fid={$fid}" target="_blank">{$=itake('global.' & rvwngenre & '.' & rvwnsort & ':api.view', 'lng')}</a></td>
+        </tr>
+        <tr>
+          <td height="10"></td>
+        </tr>
+      </table>
+      <form name="form" method="post" action="{$=get_actual_route(rvwngenre)}/{$=rvwnsort}/index.asp?action=add&keyword={$keyword}&fid={$fid}">
+      <table width="100%" cellpadding="5" cellspacing="0">
+        <tr>
+          <td width="80" height="25">{$=itake('global.' & rvwngenre & '.' & rvwnsort & ':config.content', 'lng')}</td>
+          <td><textarea rows="5" name="content" cols="75" class="textarea"></textarea></td>
+        </tr>
+        <tr>
+          <td height="35"></td>
+          <td><input type="submit" name="submit" value="{$=itake('global.lng_config.submit','lng')}" class="button" />&nbsp;<input type="reset" name="reset" value="{$=itake('global.lng_config.reset','lng')}" class="button" /></td>
+        </tr>
+      </table>
+      </form>
+      <table width="100%" cellpadding="5" cellspacing="0">
+        <tr>
+          <td height="10"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[output_note]]></name>
+      <tpl_default><![CDATA[<table cellpadding="0" cellspacing="0" class="tablen">
+  <tr>
+    <td height="25"><strong>{$=itake('global.' & rvwngenre & '.' & rvwnsort & ':api.outputtit', 'lng')}</strong></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" cellpadding="5" cellspacing="0" border="0">{$recurrence_ida}
+        <tr>
+          <td height="25"><img src="{$global.images}public/small/sico.gif" border="0" class="absmiddle" /> <strong>{$author}</strong></td>
+        </tr>
+        <tr>
+          <td>{$content}</td>
+        </tr>
+        <tr>
+          <td height="25" align="right">{$time} <span class="ash">[{$authorip}]</span></td>
+        </tr>
+        <tr>
+          <td height="10"></td>
+        </tr>{$recurrence_ida}
+      </table>
+    </td>
+  </tr>
+</table>
+]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

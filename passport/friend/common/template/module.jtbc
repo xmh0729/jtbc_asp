@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[list]]></name>
+      <tpl_default><![CDATA[{$=web_head(nhead)}
+<div id="middle">
+  <div id="middleContent">
+    <div class="middleSide">{$=user_data_member_side}</div>
+    <div class="middleMain">
+      <div class="middleMainContent">
+        <table cellpadding="0" cellspacing="0" class="tablen">
+          <tr>
+            <td class="nav"><span>{$=itake('member.friend', 'lng')}</span></td>
+          </tr>
+          <tr>
+            <td class="list" valign="top">
+              <form method="post" name="sel_form" action="{$=nuri}?action=control&backurl={$=urlencode(nurl)}">
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td><strong>{$=itake('manage.name','lng')}</strong></td>
+                  <td width="100" align="center"><strong>{$=itake('manage.time','lng')}</strong></td>
+                  <td width="100" align="center"><strong>{$=itake('manage.control','lng')}</strong></td>
+                  <td width="30"><input type="checkbox" name="sel_all" class="checkbox" onClick="select_all()" /></td>
+                </tr>{$recurrence_ida}
+                <tr>
+                  <td height="25"><a href="{$=get_actual_route(userfolder)}/?type=user_detail&username={$=urlencode('{$name}')}" target="_blank">{$name}</a></td>
+                  <td align="center">{$=format_date('{$time}', 1)}</td>
+                  <td align="center"><a href="{$=get_actual_route(userfolder)}/message/?type=send&username={$=urlencode('{$name}')}" target="_self"><img src="{$images}mail.gif" border="0"></a></td>
+                  <td><input type="checkbox" name="sel_id" class="checkbox" value="{$id}" /></td>
+                </tr>{$recurrence_ida}
+              </table>
+              </form>
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td><div id="cutepage" class="cutepage">{$cpagestr}</div></td>
+                </tr>
+                <tr>
+                  <td height="5"></td>
+                </tr>
+              </table>
+              <form method="post" name="addform" action="{$=nuri}?action=add&backurl={$=urlencode(nurl)}">
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td width="50%">{$=itake("manage.add", "lng")} <input type="text" name="name" size="10" class="text" /> <input type="submit" class="button" value="{$=itake('global.lng_config.submit', 'lng')}" /></td>
+                  <td width="50%" align="right"><input type="button" value="{$=itake('manage.remove', 'lng')}" class="button" onclick="if (confirm('{$=itake('global.lng_common.sure', 'lng')}')) sel_form.submit();" /></td>
+                </tr>
+              </table>
+              </form>
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td height="5"></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+{$=web_foot(nfoot)}
+]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

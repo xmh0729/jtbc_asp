@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[tpl1]]></name>
+      <tpl_default><![CDATA[
+<form method="post" action="{$=get_nurlpath()}/index.asp?action=vote&id={$vid}">
+<table width="96%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td height="25"><strong>{$vtopic}</strong></td>
+  </tr>
+</table>
+<table width="96%" cellpadding="0" cellspacing="0" border="0">{$}
+  <tr>{$$}
+    <td align="left"><input type="{$=change_support_vote_type({$type})}" name="votes" value="{$id}" class="radio" /> {$topic}</td>{$$}
+  </tr>{$}
+</table>
+<table width="96%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td height="35"><input type="submit" value="{$=itake('module.submit','lng')}" class="button"> <input type="button" value="{$=itake('module.view','lng')}" class="button" onclick="pop_win(\'{$=get_nurlpath()}/?type=view&id={$vid}\', \'_blank\', 320, 320, \'yes\')"></td>
+  </tr>
+</table>
+</form>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[tpl2]]></name>
+      <tpl_default><![CDATA[
+<form method="post" action="{$=get_nurlpath()}/index.asp?action=vote&id={$vid}">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td height="25"><strong>{$vtopic}</strong></td>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">{$}
+  <tr>{$$}
+    <td align="left"><input type="{$=change_support_vote_type({$type})}" name="votes" value="{$id}" class="radio" /> {$topic}</td>{$$}
+  </tr>{$}
+</table>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td height="35"><input type="submit" value="{$=itake('module.submit','lng')}" class="button"> <input type="button" value="{$=itake('module.view','lng')}" class="button" onclick="pop_win(\'{$=get_nurlpath()}/?type=view&id={$vid}\', \'_blank\', 320, 320, \'yes\')"></td>
+  </tr>
+</table>
+</form>]]></tpl_default>
+    </item>
+  </item_list>
+</xml>
