@@ -1,0 +1,61 @@
+/* 效果CSS开始 */
+/* Getting the new tags to behave
+---------------------------------------- */
+article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, meter, nav, output, progress, section, source, video { display: block; }
+mark, rp, rt, ruby, summary, time { display: inline }
+/* Global properties
+---------------------------------------- */
+body {font-family: Arial, Helvetica, sans-serif; }
+a, img { border: 0; }
+#main { height: auto; margin: 10px auto; padding: 0px; position: relative; width: 1000px; font-size: .8125em; background: #fff; 
+border-radius:20px;
+-moz-border-radius:20px;
+-webkit-border-radius:20px;
+position:relative;  
+z-index:0;
+behavior: url(/common/images/theme/default/PIE.htc);}
+#main .inside { padding: 0;
+}
+.menu { padding: 0px 0 10px 0px }
+.pad { margin-top: 20px; }
+.pad1 { margin-top: 90px; }
+a { color: #017c9a; outline: none; }
+a:hover { text-decoration: none; }
+strong { color: #393939; }
+em { }
+ul { list-style-type: square; list-style-position: outside; margin: 0 0 1.5em 1.5em; }
+ul li { padding-bottom: .5em; }
+ol { list-style-type: decimal; margin: .5em 0 1.5em 1.5em; }
+ol li { padding-bottom: .5em; }
+ol li ul { padding: .5em 0 0 0; margin-bottom: 0; }
+ol li ul li:last-child { padding-bottom: 0; }
+.fonts { font-size: 22px; font-family: "Times New Roman", Times, serif; color: #393939; }
+.fonts ol, .fonts code { font-size: 13px; font-family: Arial, Helvetica, sans-serif; }
+.fonts ol { color: #6f787a; }
+/* Left & Right alignment */
+
+.fleft { float: left; }
+.fright { float: right; }
+.clear { clear: both; }
+.alignright { text-align: right; }
+.aligncenter { text-align: center; }
+.wrapper { width: 100%; overflow: hidden; }
+.extra-wrap { overflow: hidden; }
+/* Header
+---------------------------------------- */
+#header { text-align: center; }
+#header h1 { padding: 1em 0 .5em 0; }
+/* Content
+---------------------------------------- */
+#content { padding: 40px 0 40px 0; }
+article { padding-bottom: 50px; }
+article .inner { padding: 0 0 0 14px; }
+pre, code, samp, kbd, var { font: 100% mono-space, monospace; }
+pre { margin: 0; padding: 10px; overflow: auto; background: #fff; border: 1px dashed #000 }
+.code { background: #eee; padding: 10px; }
+/* Paragraph */
+p { margin-bottom: 1.5em; }
+
+
+
+/* 效果CSS结束 */

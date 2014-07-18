@@ -27,8 +27,16 @@
       <chinese><![CDATA[案例赏析]]></chinese>
     </item>
     <item>
+      <disinfo><![CDATA[download]]></disinfo>
+      <chinese><![CDATA[特色服务]]></chinese>
+    </item>
+    <item>
       <disinfo><![CDATA[knowledge]]></disinfo>
       <chinese><![CDATA[工艺流程]]></chinese>
+    </item>
+    <item>
+      <disinfo><![CDATA[forum]]></disinfo>
+      <chinese><![CDATA[在线论坛]]></chinese>
     </item>
     <item>
       <disinfo><![CDATA[gbook]]></disinfo>

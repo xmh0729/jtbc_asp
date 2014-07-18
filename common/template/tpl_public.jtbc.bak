@@ -14,7 +14,7 @@
       <name><![CDATA[default_head]]></name>
       <tpl_default><![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<!--[if IE]>
+	<!--[if IE ]>
 <script type="text/javascript" src="{$global.images}js/PIE.js"></script>
 <![endif]-->
 <head>

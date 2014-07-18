@@ -82,10 +82,13 @@ A:hover {
 #topContent {
   WIDTH: 100%; POSITION: relative; PADDING-TOP: 60px
 }
+#logo{
+	MARGIN: 0px; PADDING-LEFT: 10px; POSITION: absolute; TOP: 15px; LEFT: 0px;
+}
 #topContent H2{
   MARGIN: 0px; PADDING-LEFT: 10px; POSITION: absolute; TOP 60px; LEFT: 0px; COLOR: #fff; FONT-FAMILY: "Trebuchet MS"; FONT-SIZE: 24px; FONT-WEIGHT: bold
 }
-#topContent H2 A{
+#topContent H2 A,#logo A {
   COLOR: #fff; TEXT-DECORATION: none
 }
 #topContent H2 A:hover {

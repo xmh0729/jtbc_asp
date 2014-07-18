@@ -252,3 +252,49 @@ function switch_display(strers)
     tobj.style.display = 'none';
   }
 }
+
+function move(zhu){
+ var d = document;
+ var dde = d.documentElement;
+ var db = d.body;
+ var w = window;
+ var o = d.getElementById(zhu.id);
+ var ie6 = /msie 6/i.test(navigator.userAgent);
+ 
+ if(o){
+  var pubCss = 'position:'+(zhu.f && !ie6 ? 'fixed' : 'absolute')+';'+(zhu.t != undefined ? 'top:'+zhu.t+'px;' : 'bottom:0;');
+  if(zhu.r != undefined && zhu.l == undefined){
+   o.style.cssText += pubCss + 'right:'+zhu.r+'px';
+  }else{
+   o.style.cssText += pubCss + 'margin-left:'+zhu.l+'px';
+  }
+  
+  if(zhu.f && ie6){
+   var topCss = ';top:expression(documentElement.scrollTop+'+(zhu.t == undefined ? dde.clientHeight-o.offsetHeight : zhu.t)+'+px);';
+   var rightCss = ';right:expression(documentElement.scrollRight+'+(zhu.r == undefined ? dde.clientWidth-o.offsetWidth : zhu.r)+'+px);';
+   if(zhu.r != undefined && zhu.l == undefined){
+    o.style.cssText += rightCss + topCss;
+   }else{
+    o.style.cssText += topCss;
+   }
+  }else{
+   if(!zhu.f){
+    var timer;
+    //窗口大小改变事件与滚动条滚动事件
+    w.onresize = w.onscroll = function(){
+     clearInterval(timer);//清空时间
+     timer = setInterval(function(){
+       //双选择为了修复chrome 下xhtml解析时dd.scrollTop为 0
+             var top = (dde.scrollTop || db.scrollTop);
+       var c = top - o.offsetTop + (zhu.t != undefined ? zhu.t : (w.innerHeight || dde.clientHeight) - o.offsetHeight);
+       if(c != 0){
+        o.style.top = o.offsetTop + Math.ceil(Math.abs(c)/10)*(c < 0 ? -1 : 1) + 'px';
+       }else{
+        clearInterval(timer);//清空时间
+       }
+     },10);
+    };
+   }
+  }
+ }
+}

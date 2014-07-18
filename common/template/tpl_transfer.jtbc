@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xml mode="jtbc" author="jetiben">
   <configure>
     <node>item</node>
@@ -23,6 +23,16 @@
     <item>
       <name><![CDATA[m1]]></name>
       <tpl_default><![CDATA[{$}{$$}<a href="{$=curl("{$baseurl}", iurl('detail', {$id}, {$urltype}, 'folder={$createfolder};filetype={$createfiletype};time={$time}'))}" target="_self">{$topic}</a> | {$$}{$}]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[p_img]]></name>
+      <tpl_default><![CDATA[{$}{$$}<a href="{$=curl("{$baseurl}", iurl('detail', {$id}, {$urltype}, 'folder={$createfolder};filetype={$createfiletype};time={$time}'))}" target="_blank"><img  src="{$=get_actual_route('product')}/{$image} " width=240 height=200 /></a>
+{$$}{$}]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[s_img]]></name>
+      <tpl_default><![CDATA[{$}{$$}<a href="{$=curl("{$baseurl}", iurl('detail', {$id}, {$urltype}, 'folder={$createfolder};filetype={$createfiletype};time={$time}'))}" target="_blank"><img  src="{$=get_actual_route('shop')}/{$image} " width=200 height=120 /></a>
+{$$}{$}]]></tpl_default>
     </item>
   </item_list>
 </xml>

@@ -11,7 +11,16 @@
       <tpl_default><![CDATA[{$=web_head(nhead)}
       	
 <script type="text/javascript">
-	 	
+	
+  move({
+   id : 'float_right',
+   r : 0,
+   t : 200,
+   f : 1
+  });
+   	
+
+
 
 $(document).ready(function(){
 
