@@ -15,9 +15,6 @@
       <div class="box1">
         <h3>{$=itake('module.class', 'lng')}</h3>{$=isort("tpl=1;rnum=1")}
       </div>
-      <div class="box1">
-        <h3>{$=itake('module.good','lng')}</h3>{$=itransfer("good","1","topx=10;tnum=26")}
-      </div>
     </div>
     <div class="middleMain">
       <div class="middleMainContent">

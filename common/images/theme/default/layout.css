@@ -115,7 +115,7 @@ A:hover {
   BACKGROUND: #0096D4; COLOR: #FFFFFF; TEXT-DECORATION: none
 }
 #middle {
-  WIDTH: 1000px; BACKGROUND: url(bg.1.1.gif)
+  WIDTH: 1000px; BACKGROUND: #fff
 }
 #middleContent {
   PADDING: 10px 10px 30px 10px; BACKGROUND: url(bg.1.2.gif) bottom center no-repeat
@@ -220,7 +220,7 @@ A:hover {
   WIDTH: 200px; DISPLAY: inline; FLOAT: left
 }
 .middleMain {
-  WIDTH: 666px; DISPLAY: inline; FLOAT: left
+  WIDTH: 780px; DISPLAY: inline; FLOAT: left
 }
 .middleMainContent {
   MARGIN-LEFT: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BORDER: #DEDEDE 1px solid

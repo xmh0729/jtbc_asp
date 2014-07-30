@@ -18,9 +18,6 @@
       <disinfo><![CDATA[{$path}/manage.asp]]></disinfo>
       <chinese><![CDATA[记录列表]]></chinese>
     </item>
-    <item>
-      <disinfo><![CDATA[{$=adminfolder}/xml:xml/manage.asp?type=template&xml={$folder}.tpl.module]]></disinfo>
-      <chinese><![CDATA[前台模板]]></chinese>
-    </item>
+
   </item_list>
 </xml>

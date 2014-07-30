@@ -12,5 +12,12 @@
   <li><a href="{$=curl("{$baseurl}", iurl('list', {$id}, {$urltype}, 'folder={$createfolder};filetype={$createfiletype}'))}" target="_self">{$sort}</a></li>{$$}{$}
 </ul>]]></tpl_default>
     </item>
+    <item>
+      <name><![CDATA[1_1]]></name>
+      <tpl_default><![CDATA[<ul>{$}{$$}
+  <li><a href="{$=curl("{$baseurl}", iurl('list', {$id}, {$urltype}, 'folder={$createfolder};filetype={$createfiletype}'))}" target="_self">{$sort}</a></li>
+  {$=isort("tpl=1;rnum=1;class={$id}")}{$$}{$}
+</ul>]]></tpl_default>
+    </item>
   </item_list>
 </xml>

@@ -6,9 +6,6 @@
     <base>item_list</base>
   </configure>
   <item_list>
-    <item>
-      <disinfo><![CDATA[{$folder}:{$path}/manage.asp]]></disinfo>
-      <chinese><![CDATA[模块管理]]></chinese>
-    </item>
+
   </item_list>
 </xml>

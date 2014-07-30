@@ -101,6 +101,9 @@ blockquote {
   padding-bottom: 20px;
   width: 75%;
 }
+.content img{
+max-width:750px;
+}
 #sidebar {
   width: 22%;
 }
@@ -460,6 +463,11 @@ blockquote {
   padding-right: 2.25em;
   min-width: 1px;
 }
+#nav > ul a img.free{
+  margin:-35px -5px -15px 0;
+  width:60px;
+  height:52px;
+}
 .sf-sub-indicator {
   position: absolute;
   display: block;
@@ -527,6 +535,7 @@ li.sfHover > a > .sf-sub-indicator {
 /* === HOME ROW */
 .home-row.inner {
   padding: 0;
+  padding-top:10px;
   padding-bottom:10px;
   width: 1000px;
 }
@@ -560,7 +569,7 @@ li.sfHover > a > .sf-sub-indicator {
   width: 45.052083333333336%;
 }
 .home-row .widget.one-third {
-  width: 28.125%;
+  width: 28%;
 }
 .home-row .widget.one-fourth {
   width: 19.661458333333335%;
@@ -587,7 +596,10 @@ li.sfHover > a > .sf-sub-indicator {
   color: #d48303;
 }
 .home-row .widget h2 img {
-  padding-top: 7px;
+  margin-top: 10px;
+}
+.home-row .widget h2 .free {
+  margin: -20px -10px -20px -40px;
 }
 .chrome .home-row .widget,
 .opera .home-row .widget,
@@ -601,7 +613,7 @@ li.sfHover > a > .sf-sub-indicator {
 .home-testimonials .title {
   float: left;
   padding-right: 30px;
-  margin-right: 0px;
+  margin-right: 5px;
   border-right: 1px solid #bcbcbc;
 }
 .home-testimonials .title h2 {
@@ -617,18 +629,38 @@ li.sfHover > a > .sf-sub-indicator {
   min-width: 32px;
 }
 .home-testimonials .title p {
-  margin: -10px 0 5px;
+  margin: -5px 0 5px;
   text-align: right;
   color: #898989;
 }
-.home-testimonials ul {
-  list-style: none;
-  margin: 0 0 0 26px;
-  float: right;
+.home-testimonials .demo {
+  overflow:hidden;
+  margin: 10px 0 0 26px;
+  width: 800px;
+  border: 1px dashed #CCC;
 }
-.home-testimonials ul strong {
-  color: #000;
+.home-testimonials .demo  img{
+  border: 3px solid #F2F2F2;
 }
+
+.home-testimonials .indemo {
+	float: left;
+	width: 800%;
+}
+.home-testimonials .demo1 {
+float: left;
+}
+
+
+.home-testimonials .demo1 li{ float:left; text-align:center; display:inline;}
+.home-testimonials .demo1 li h6{text-align:center; font-weight:normal;margin-top:0;}
+
+.home-testimonials .demo2 {
+float: left;
+}
+.home-testimonials .demo2 li{ float:left; text-align:center; display:inline;}
+.home-testimonials .demo2 li h6{text-align:center; font-weight:normal;margin-top:0;}
+
 .bl_testimonials .thumbnail,
 .bl_testimonials .withoutthumbnail,
 .bl_testimonials .the-content {

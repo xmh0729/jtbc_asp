@@ -8,31 +8,31 @@
   <language_list>
     <item>
       <disinfo><![CDATA[mgtitle]]></disinfo>
-      <chinese><![CDATA[文章管理]]></chinese>
+      <chinese><![CDATA[新闻管理]]></chinese>
     </item>
     <item>
       <disinfo><![CDATA[nav_list]]></disinfo>
-      <chinese><![CDATA[全部文章列表]]></chinese>
+      <chinese><![CDATA[全部新闻列表]]></chinese>
     </item>
     <item>
       <disinfo><![CDATA[nav_hidden]]></disinfo>
-      <chinese><![CDATA[隐藏的文章列表]]></chinese>
+      <chinese><![CDATA[隐藏的新闻列表]]></chinese>
     </item>
     <item>
       <disinfo><![CDATA[nav_good]]></disinfo>
-      <chinese><![CDATA[推荐的文章列表]]></chinese>
+      <chinese><![CDATA[推荐的新闻列表]]></chinese>
     </item>
     <item>
       <disinfo><![CDATA[nav_top]]></disinfo>
-      <chinese><![CDATA[置顶的文章列表]]></chinese>
+      <chinese><![CDATA[置顶的新闻列表]]></chinese>
     </item>
     <item>
       <disinfo><![CDATA[nav_add]]></disinfo>
-      <chinese><![CDATA[添加新的文章]]></chinese>
+      <chinese><![CDATA[添加新的新闻]]></chinese>
     </item>
     <item>
       <disinfo><![CDATA[edit]]></disinfo>
-      <chinese><![CDATA[编辑文章]]></chinese>
+      <chinese><![CDATA[编辑新闻]]></chinese>
     </item>
     <item>
       <disinfo><![CDATA[batch_notice]]></disinfo>

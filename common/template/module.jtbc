@@ -11,8 +11,7 @@
       <tpl_default><![CDATA[{$=web_head(nhead)}
       	
 <script type="text/javascript">
-	 	
-
+	
 $(document).ready(function(){
 
 	$('.gallery')._TMS({
@@ -43,64 +42,64 @@ $(document).ready(function(){
       <div class="gallery">
         <ul class="items">
           <li><img src="images/900x500_1.jpg" alt="" />
-            <div class="banner"><span>Unde omnis iste natus errsit rem aperiam, eaque ipsa quae. Woluptatem accusantium </span></div>
+            <div class="banner"><span>张家港双山岛别墅 门厅</span></div>
           </li>
           <li><img src="images/900x500_2.jpg" alt="" />
-            <div class="banner"><span>Nearuasi architecto beatae faserse vitaerspiciat kerusler miase lerosnr lertyseras</span></div>
+            <div class="banner"><span>张家港双山岛别墅 接待室</span></div>
           </li>
           <li><img src="images/900x500_3.jpg" alt="" />
-            <div class="banner"><span>Unde omnis iste natus errsit rem aperiam, eaque ipsa quae. Woluptatem accusantium </span></div>
+            <div class="banner"><span>张家港双山岛别墅 视听室 </span></div>
           </li>
           <li><img src="images/900x500_4.jpg" alt="" />
-            <div class="banner"><span>Unde omnis iste natus errsit rem aperiam, eaque ipsa quae. Woluptatem accusantium </span></div>
+            <div class="banner"><span>张家港双山岛别墅 卧室 </span></div>
           </li>
           <li><img src="images/900x500_5.jpg" alt="" />
-            <div class="banner"><span>Nearuasi architecto beatae faserse vitaerspiciat kerusler miase lerosnr lertyseras.</span></div>
+            <div class="banner"><span>张家港某会所 中包厢</span></div>
           </li>
           <li><img src="images/900x500_6.jpg" alt="" />
-            <div class="banner"><span>Woluptatem accusantium dolor massa astumosto Unde omnis iste natus errsit rem aper</span></div>
+            <div class="banner"><span>城市理想 客厅</span></div>
           </li>
           <li><img src="images/900x500_7.jpg" alt="" />
-            <div class="banner"><span>Unde omnis iste natus errsit rem aperiam, eaque ipsa quae. Woluptatem accusantium </span></div>
+            <div class="banner"><span>城市理想 书房</span></div>
           </li>
           <li><img src="images/900x500_8.jpg" alt="" />
-            <div class="banner"><span>Unde omnis iste natus errsit rem aperiam, eaque ipsa quae. Woluptatem accusantium </span></div>
+            <div class="banner"><span>典雅的中式客厅 </span></div>
+          </li>
+          <li><img src="images/900x500_9.jpg" alt="" />
+            <div class="banner"><span>天伦随园 63# 别墅样板房 大厅</span></div>
+          </li>
+          <li><img src="images/900x500_10.jpg" alt="" />
+            <div class="banner"><span>天伦随园 63# 别墅样板房 卧室</span></div>
+          </li>
+          <li><img src="images/900x500_11.jpg" alt="" />
+            <div class="banner"><span>天伦随园 63# 别墅样板房 书房 </span></div>
+          </li>
+          <li><img src="images/900x500_12.jpg" alt="" />
+            <div class="banner"><span>天伦随园 63# 别墅样板房 会议室</span></div>
+          </li>
+          <li><img src="images/900x500_13.jpg" alt="" />
+            <div class="banner"><span>中式客厅</span></div>
           </li>
           <li><img src="images/900x500_1.jpg" alt="" />
-            <div class="banner"><span>Nearuasi architecto beatae faserse vitaerspiciat kerusler miase lerosnr lertyseras</span></div>
+            <div class="banner"><span>张家港双山岛别墅 门厅</span></div>
           </li>
           <li><img src="images/900x500_2.jpg" alt="" />
-            <div class="banner"><span>Unde omnis iste natus errsit rem aperiam, eaque ipsa quae. Woluptatem accusantium </span></div>
+            <div class="banner"><span>张家港双山岛别墅 接待室</span></div>
           </li>
           <li><img src="images/900x500_3.jpg" alt="" />
-            <div class="banner"><span>Unde omnis iste natus errsit rem aperiam, eaque ipsa quae. Woluptatem accusantium </span></div>
+            <div class="banner"><span>张家港双山岛别墅 视听室 </span></div>
           </li>
           <li><img src="images/900x500_4.jpg" alt="" />
-            <div class="banner"><span>Nearuasi architecto beatae faserse vitaerspiciat kerusler miase lerosnr lertyseras.</span></div>
+            <div class="banner"><span>张家港双山岛别墅 卧室 </span></div>
           </li>
           <li><img src="images/900x500_5.jpg" alt="" />
-            <div class="banner"><span>Woluptatem accusantium dolor massa astumosto Unde omnis iste natus errsit rem aper</span></div>
+            <div class="banner"><span>张家港某会所 中包厢</span></div>
           </li>
           <li><img src="images/900x500_6.jpg" alt="" />
-            <div class="banner"><span>Unde omnis iste natus errsit rem aperiam, eaque ipsa quae. Woluptatem accusantium </span></div>
+            <div class="banner"><span>城市理想 客厅</span></div>
           </li>
           <li><img src="images/900x500_7.jpg" alt="" />
-            <div class="banner"><span>Unde omnis iste natus errsit rem aperiam, eaque ipsa quae. Woluptatem accusantium </span></div>
-          </li>
-          <li><img src="images/900x500_8.jpg" alt="" />
-            <div class="banner"><span>Unde omnis iste natus errsit rem aperiam, eaque ipsa quae. Woluptatem accusantium </span></div>
-          </li>
-          <li><img src="images/900x500_1.jpg" alt="" />
-            <div class="banner"><span>Unde omnis iste natus errsit rem aperiam, eaque ipsa quae. Woluptatem accusantium </span></div>
-          </li>
-          <li><img src="images/900x500_2.jpg" alt="" />
-            <div class="banner"><span>Nearuasi architecto beatae faserse vitaerspiciat kerusler miase lerosnr lertyseras</span></div>
-          </li>
-          <li><img src="images/900x500_3.jpg" alt="" />
-            <div class="banner"><span>Unde omnis iste natus errsit rem aperiam, eaque ipsa quae. Woluptatem accusantium </span></div>
-          </li>
-          <li><img src="images/900x500_4.jpg" alt="" />
-            <div class="banner"><span>Unde omnis iste natus errsit rem aperiam, eaque ipsa quae. Woluptatem accusantium </span></div>
+            <div class="banner"><span>城市理想 书房</span></div>
           </li>
         </ul>
       </div>
@@ -118,6 +117,11 @@ $(document).ready(function(){
           <li><a href="#"><span><img src="images/70x70_6.jpg" alt="" /></span></a></li>
           <li><a href="#"><span><img src="images/70x70_7.jpg" alt="" /></span></a></li>
           <li><a href="#"><span><img src="images/70x70_8.jpg" alt="" /></span></a></li>
+          <li><a href="#"><span><img src="images/70x70_9.jpg" alt="" /></span></a></li>
+          <li><a href="#"><span><img src="images/70x70_10.jpg" alt="" /></span></a></li>
+          <li><a href="#"><span><img src="images/70x70_11.jpg" alt="" /></span></a></li>
+          <li><a href="#"><span><img src="images/70x70_12.jpg" alt="" /></span></a></li>
+          <li><a href="#"><span><img src="images/70x70_13.jpg" alt="" /></span></a></li>
           <li><a href="#"><span><img src="images/70x70_1.jpg" alt="" /></span></a></li>
           <li><a href="#"><span><img src="images/70x70_2.jpg" alt="" /></span></a></li>
           <li><a href="#"><span><img src="images/70x70_3.jpg" alt="" /></span></a></li>
@@ -125,11 +129,6 @@ $(document).ready(function(){
           <li><a href="#"><span><img src="images/70x70_5.jpg" alt="" /></span></a></li>
           <li><a href="#"><span><img src="images/70x70_6.jpg" alt="" /></span></a></li>
           <li><a href="#"><span><img src="images/70x70_7.jpg" alt="" /></span></a></li>
-          <li><a href="#"><span><img src="images/70x70_8.jpg" alt="" /></span></a></li>
-          <li><a href="#"><span><img src="images/70x70_1.jpg" alt="" /></span></a></li>
-          <li><a href="#"><span><img src="images/70x70_2.jpg" alt="" /></span></a></li>
-          <li><a href="#"><span><img src="images/70x70_3.jpg" alt="" /></span></a></li>
-          <li><a href="#"><span><img src="images/70x70_4.jpg" alt="" /></span></a></li>
         </ul>
       </div>
       <a href="#" class="button button1" data-type="prevPage">&lt;</a> <a href="#" class="button button2" data-type="nextPage">&gt;</a> </div>
@@ -138,15 +137,23 @@ $(document).ready(function(){
 <!--效果html结束-->
 
 <div class="inner home-row group">
-                
                 <div class="widget-first widget one-third widget-icon-text group">
-                    <h2><img class="icon-img" src="common/images/theme/default/info.png" alt="" /> {$=itake("global.lng_menu.article", "lng")}</h2>
-                    <p>{$=itransfer('top', '1', 'topx=10;tnum=30;genre=article')}</p>
+                    <h2><img class="free" src="common/images/theme/default/free.png" alt="" />特色服务</h2>
+                    <ul >
+                    	<a href="/free.asp" target="_blank"><li style="list-style: none; line-height:0;padding:0;"><img src="/common/images/theme/default/1.png" style="width:260px;"></img></li></a>
+                    	<a href="/free1.asp" target="_blank""><li style="list-style: none; line-height:0;padding:0;"><img src="/common/images/theme/default/2.png" style="width:260px;"></img></li></a>
+                    	<a href="/free2.asp" target="_blank"><li style="list-style: none; line-height:0;padding:0;"><img src="/common/images/theme/default/3.png" style="width:260px;"></img></li></a>
+                    </ul>
                 </div>
                 
                 <div class="widget one-third widget-icon-text group">
-                    <h2><i class="icon-envelope"></i> Contact the team!</h2>
-                    <p>Feel free to contact us for additional info or for a free quote!</p>
+                    <h2><img class="icon-img" src="/common/images/theme/default/info.png" alt="" /> {$=itake("global.lng_menu.news", "lng")}</h2>
+                    <p>{$=itransfer('top', '1', 'topx=6;tnum=40;rnum=6;genre=article;class=4')}</p>
+                </div>
+                
+                <div class="widget-last widget one-third widget-icon-text group">
+                    <h2>装修经验</h2>
+                    <p>{$=itransfer('top', '1', 'topx=6;tnum=40;rnum=6;class=17;genre=knowledge')}</p>
                 </div>
                 
                 
@@ -156,41 +163,64 @@ $(document).ready(function(){
                     <h2>{$=itake("global.lng_menu.product", "lng")}</h2>
                     <p>值得记录的经典设计</p>
                 </div>
-                <ul class="list-testimonials" style="float: left;">
-                    <li>
-                        <p>{$=itransfer('top', 'p_img', 'topx=3;tnum=30;genre=product')}</p>
-                    </li>
-                    <li>
-                        <p>I am absolutely thrilled with this theme! I have never built a website before but your instructions and design make it both fun and easy to do - <strong>Elisa Meis</strong> -</p>
-                    </li>
-                    <li>
-                        <p>Bookmark this theme as one of your “Must Haves for 2012” This theme is without a doubt one of our Top 5 Purchases. - <strong>Ricardo Mori</strong> -</p>
-                    </li>
-                    <li>
-                        <p>I purchased this theme and I really like it. The theme authors have been very helpful in the support area of their website. - <strong>Erica Evans</strong> -</p>
-                    </li>
-                </ul>
-                <script type="text/javascript" src="{$global.images}js/testimonials.js"></script>	      
+                <div id="demo" class="demo">
+									<div id="indemo" class="indemo">
+										<div id="demo1" class="demo1">
+											{$=itransfer('top', 'p_img', 'topx=10;tnum=30;genre=product;cls=2')}
+										</div>
+										<div id="demo2" class="demo2"></div>
+									</div>
+								</div>
+<script>
+var speed=10;
+var tab=document.getElementById("demo");
+var tab1=document.getElementById("demo1");
+var tab2=document.getElementById("demo2");
+tab2.innerHTML=tab1.innerHTML;
+function Marquee(){
+if(tab2.offsetWidth-tab.scrollLeft<=0)
+tab.scrollLeft-=tab1.offsetWidth
+else{
+tab.scrollLeft++;
+}
+}
+var MyMar=setInterval(Marquee,speed);
+tab.onmouseover=function() {clearInterval(MyMar)};
+tab.onmouseout=function() {MyMar=setInterval(Marquee,speed)};
+</script>
+
 </div>    
 
 <div class="inner home-testimonials home-section group">
                 <div class="title">
-                    <h2>专业团队</h2>
+                    <h2>精英团队</h2>
                 </div>
-                <ul class="list-testimonials" style="float: left;">
-                    <li>
-                        <p>设计师图片</p>
-                    </li>
-                    <li>
-                        <p>I am absolutely thrilled with this theme! I have never built a website before but your instructions and design make it both fun and easy to do - <strong>Elisa Meis</strong> -</p>
-                    </li>
-                    <li>
-                        <p>Bookmark this theme as one of your “Must Haves for 2012” This theme is without a doubt one of our Top 5 Purchases. - <strong>Ricardo Mori</strong> -</p>
-                    </li>
-                    <li>
-                        <p>I purchased this theme and I really like it. The theme authors have been very helpful in the support area of their website. - <strong>Erica Evans</strong> -</p>
-                    </li>
-                </ul>      
+                <div id="demoB" class="demo">
+									<div id="indemoB" class="indemo">
+										<div id="demo1B" class="demo1">
+											{$=itransfer('top', 'team_img', 'topx=10;tnum=30;genre=team;class=15')}
+										</div>
+										<div id="demo2B" class="demo2"></div>
+									</div>
+							 </div>
+<script>
+var speed=10;
+var tabB=document.getElementById("demoB");
+var tab1B=document.getElementById("demo1B");
+var tab2B=document.getElementById("demo2B");
+tab2B.innerHTML=tab1B.innerHTML;
+function Marquee(){
+if(tab2B.offsetWidth-tabB.scrollLeft<=0)
+tabB.scrollLeft-=tab1B.offsetWidth
+else{
+tabB.scrollLeft++;
+}
+}
+var MyMar=setInterval(Marquee,speed);
+tabB.onmouseover=function() {clearInterval(MyMar)};
+tabB.onmouseout=function() {MyMar=setInterval(Marquee,speed)};
+</script>
+
 </div>     
 <div class="clear"></div>
 

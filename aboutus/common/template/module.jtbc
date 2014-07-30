@@ -23,7 +23,7 @@
       <div class="middleMainContent">
         <table cellpadding="0" cellspacing="0" class="tablen">
           <tr>
-            <td class="nav"><span>{$=inavigation("module", "")}</span></td>
+            <td class="nav"><span>{$=inavigation("module", "{$topic}")}</span></td>
           </tr>
           <tr>
             <td height="10"></td>

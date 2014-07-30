@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[list]]></name>
+      <tpl_default><![CDATA[{$=web_head(nhead)}
+<div id="middle">
+  <div id="middleContent">
+    <div class="middleSide">
+      <div class="box1">
+        <h3>{$=itake('module.class', 'lng')}</h3>{$=isort("tpl=1;rnum=1")}
+      </div>
+      <div class="box1">
+        <h3>{$=itake('module.good','lng')}设计师</h3>{$=itransfer("good","1","topx=10;tnum=26;class=15")}
+      </div>
+    </div>
+    <div class="middleMain">
+      <div class="middleMainContent">
+        <table cellpadding="0" cellspacing="0" class="tablen">
+          <tr>
+            <td class="nav"><span>{$=inavigation("module", "{$class}")}</span></td>
+          </tr>
+          <tr>
+            <td class="list" valign="top">{$recurrence_ida}
+              <div class="probox1">
+                <table width="140" cellspacing="0" cellpadding="0" border="0" align="center">
+                  <tr>
+                    <td><div class="imgbox1"><a href="{$=iurl('detail', {$id}, nurltype, 'folder=' & ncreatefolder & ';filetype=' & ncreatefiletype & ';time={$time}')}"><img src="{$image}" alt="{$image}" width="122" height="96" /></a></div></td>
+                  </tr>
+                  <tr>
+                    <td height="40" align="center">{$topic}</td>
+                  </tr>
+                  <tr>
+                    <td height="10"></td>
+                 </tr>
+                </table>
+              </div>{$recurrence_ida}
+            </td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td><div id="cutepage" class="cutepage">{$cpagestr}</div></td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+{$=web_foot(nfoot)}
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[detail]]></name>
+      <tpl_default><![CDATA[{$=web_head(nhead)}
+<div id="middle">
+  <div id="middleContent">
+    <div class="middleSide">
+      <div class="box1">
+        <h3>{$=itake('module.class', 'lng')}</h3>{$=isort("tpl=1;rnum=1")}
+      </div>
+      <div class="box1">
+        <h3>{$=itake('module.good','lng')}设计师</h3>{$=itransfer("good","1","topx=10;tnum=26;class=15")}
+      </div>
+    </div>
+    <div class="middleMain">
+      <div class="middleMainContent">
+        <table cellpadding="0" cellspacing="0" class="tablen">
+          <tr>
+            <td class="nav"><span>{$=inavigation("module", "{$class}")}</span></td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td class="topic"><div>{$topic}</div></td>
+          </tr>
+          <tr>
+            <td height="25" align="right">{$=itake('global.lng_config.time','lng')}:{$time},{$=itake('global.lng_config.count','lng')}:<span id="count">0</span></td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td class="content"><div>{$content}</div></td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td><div id="ct-cutepage" class="cutepage">{$page_sel}</div></td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td align="right">【<a href="javascript:window.print()">{$=itake('global.lng_config.print','lng')}</a>】【<a href="javascript:self.close()">{$=itake('global.lng_config.close','lng')}</a>】</td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<script type="text/javascript">
+function innerCOUNT(strers)
+{
+  if (strers != "$error$") get_id("count").innerHTML = strers;
+};
+igets("{$=get_actual_route('expansion')}/count/?genre={$=urlencode(ngenre)}&id={$id}", innerCOUNT);
+</script>
+{$=web_foot(nfoot)}
+]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

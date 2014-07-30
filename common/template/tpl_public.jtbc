@@ -57,7 +57,7 @@
                     <!-- START LOGO -->
                     <div id="logo" class="group">
                         <h1>
-                            <a class="logo-text" href="index.html" title="Meménto">LO<span>G</span>O</a>                        
+                            <a class="logo-text" href="index.html" title="华风装饰"><img style="width: 75px; margin-bottom: 8px;" src="{$global.images}theme/{$=nskin}/logo.png"></img></a>                        
                         </h1>
                         <p>华风艺术装饰有限公司</p>
                     </div>
@@ -75,8 +75,8 @@
                             <li class="">
                                 <a href="#" class="sf-with-ul">公司新闻<span class="sf-sub-indicator"> »</span></a>
                                 <ul class="sub-menu" >
-                                    <li><a href="slider-flash-slider.html">媒体报道</a></li>
-                                    <li><a href="slider-thumbnails-slider.html">近期活动</a></li>
+                                    <li><a href="{$=get_actual_route('article')}/?type=list&classid=3">媒体报道</a></li>
+                                    <li><a href="{$=get_actual_route('article')}/?type=list&classid=4">近期活动</a></li>
                                     
                                     
                                     
@@ -88,8 +88,9 @@
                             <li class="">
                                 <a href="#" class="sf-with-ul">案例赏析<span class="sf-sub-indicator"> »</span></a>
                                 <ul class="sub-menu">
-                                    <li><a href="portfolio-3-columns.html">经典案例</a></li>
-                                    <li><a href="portfolio-big-image.html">现场直击</a></li>
+                                    <li><a href="{$=get_actual_route('product')}/?type=list&classid=2">经典案例</a></li>
+                                    <li><a href="{$=get_actual_route('product')}/?type=list&classid=5">现场直击</a></li>
+                                    <li><a href="{$=get_actual_route('product')}/?type=list&classid=18">户型分析</a></li>
                                     
                                     
                                     
@@ -99,9 +100,10 @@
                             <li class="">
                                 <a href="#" class="sf-with-ul">{$=itake('global.lng_menu.knowledge', 'lng')}<span class="sf-sub-indicator"> »</span></a>
                                 <ul class="sub-menu">
-                                    <li><a href="faqs.html">装修流程</a></li>
-                                    <li><a href="testimonials.html">施工工艺</a></li>
-                                    <li><a href="#">环保材料</a></li>
+                                	  <li><a href="{$=get_actual_route('knowledge')}/?type=list&classid=17">装修经验</a></li>
+                                    <li><a href="{$=get_actual_route('knowledge')}/?type=list&classid=12">装修流程</a></li>
+                                    <li><a href="{$=get_actual_route('knowledge')}/?type=list&classid=13">施工工艺</a></li>
+                                    <li><a href="{$=get_actual_route('knowledge')}/?type=list&classid=14">环保材料</a></li>
                                     
                                     
                                     
@@ -109,14 +111,14 @@
                             </li>
                             
                             <li class="">
-                                <a href="#" class="sf-with-ul">特色服务<span class="sf-sub-indicator"> »</span></a>
+                                <a href="#" class="sf-with-ul"><img class="free" src="{$global.images}theme/{$=nskin}/free.png" alt="" />特色服务<span class="sf-sub-indicator"> »</span></a>
                                 <ul class="sub-menu">
-                                    <li><a href="big-thumbnails.html">免费验房量房</a></li>
-                                    <li><a href="small-thumbnails.html">免费户型分析</a></li>
-																		<li><a href="#">免费工程预算</a></li>
+                                    <li><a href="/free.asp" target="_blank">免费验房量房</a></li>
+                                    <li><a href="/free1.asp" target="_blank">免费户型分析</a></li>
+																		<li><a href="/free2.asp" target="_blank">免费工程预算</a></li>
                                 </ul>
                             </li>
-                            
+                            <li><a href="{$=get_actual_route('team')}/?type=list&classid=15|16">{$=itake('global.lng_menu.team', 'lng')}</a></li>
                             <li><a href="{$=get_actual_route('aboutus')}">{$=itake('global.lng_menu.aboutus', 'lng')}</a></li>
                             <li><a href="{$=get_actual_route('support')}/gbook/">{$=itake('global.lng_menu.gbook', 'lng')}</a></li>
                             

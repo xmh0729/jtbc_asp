@@ -11,7 +11,7 @@
     <item varstr="nidfield" strvalue="pid" />
     <item varstr="nfpre" strvalue="p_" />
     <item varstr="nurltype" strvalue="0" />
-    <item varstr="nclstype" strvalue="0" />
+    <item varstr="nclstype" strvalue="1" />
     <item varstr="nbasehref" strvalue="0" />
     <item varstr="nindex" strvalue="index.asp" />
     <item varstr="ncontentcutepage" strvalue="1" />

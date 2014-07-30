@@ -60,10 +60,22 @@ Function jtbc_cms_module_add()
   End If
 End Function
 
+Function jtbc_cms_module_addfree()
+  If CStr(nckcode) = CStr(request.querystring("nckcode")) Then
+    Dim tmpstr: tmpstr = ireplace("module.addfree", "tpl")
+    tmpstr = cvalhtml(tmpstr, nvalidate, "{$recurrence_valcode}")
+    jtbc_cms_module_addfree = tmpstr
+  Else
+    Call imessage(itake("global.lng_public.sudd", "lng"), -1)
+  End If
+End Function
+
 Function jtbc_cms_module()
   Select Case get_ctype(request.querystring("type"), ECtype)
     Case "add"
       jtbc_cms_module = jtbc_cms_module_add
+    Case "addfree"
+      jtbc_cms_module = jtbc_cms_module_addfree
     Case "list"
       jtbc_cms_module = jtbc_cms_module_list
     Case Else
@@ -106,10 +118,47 @@ Sub jtbc_cms_module_adddisp()
   End If
 End Sub
 
+Sub jtbc_cms_module_adddispfree()
+  ECtype = "add"
+  If Not CStr(nckcode) = CStr(request.form("nckcode")) Then Call imessage(itake("global.lng_public.sudd", "lng"), -1)
+  If Not ck_valcode() Then ErrStr = ErrStr & itake("global.lng_error.valcode", "lng") & spa
+  Dim tmpchkstr, tmpcitem
+  tmpchkstr = "author:" & itake("config.author", "lng") & ",topic:" & itake("config.topic", "lng") & ",content:" & itake("config.content", "lng")
+  For Each tmpcitem In Split(tmpchkstr, ",")
+    If check_null(request.Form(Split(tmpcitem, ":")(0))) Then
+      ErrStr = ErrStr & replace(itake("global.lng_error.insert_empty", "lng"), "[]", "[" & Split(tmpcitem, ":")(1) & "]") & spa
+    End If
+  Next
+  If check_null(ErrStr) Then
+    sqlstr = "select * from " & ndatabase
+    Set rs = server.CreateObject("adodb.recordset")
+    rs.open sqlstr, conn, 1, 3
+    rs.addnew
+    rs(cfname("author")) = left_intercept(get_str(request.Form("author")), 50)
+    rs(cfname("authorip")) = nuserip
+    rs(cfname("sex")) = get_num(request.Form("sex"), 0)
+    rs(cfname("qq")) = get_num(request.Form("qq"), 0)
+    rs(cfname("face")) = get_num(request.Form("face"), 0)
+    rs(cfname("email")) = left_intercept(get_str(request.Form("email")), 50)
+    rs(cfname("homepage")) = left_intercept(get_str(request.Form("homepage")), 200)
+    rs(cfname("topic")) = left_intercept(get_str(request.Form("topic")), 50)
+    rs(cfname("content")) = left_intercept(get_str(request.Form("content")), 1000)
+    rs(cfname("hidden")) = get_num(request.Form("hidden"), 0)
+    rs(cfname("lng")) = nlng
+    rs(cfname("time")) = Now()
+    rs.update
+    rs.Close
+    Set rs = Nothing
+	Response.Write("<script>alert('报名成功,请保持电话畅通');location.href='./?type=addfree&nckcode="+request.form("nckcode")+"';</script>")
+  End If
+End Sub
+
 Sub jtbc_cms_module_action()
   Select Case request.querystring("action")
     Case "add"
       Call jtbc_cms_module_adddisp
+	Case "addfree"
+	  Call jtbc_cms_module_adddispfree
   End Select
 End Sub
 '****************************************************
